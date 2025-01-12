@@ -16,9 +16,10 @@
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.use_sql_comments"  value="true"/>
 
-<!--        어플리케이션 실행할 때마다 데이터베이스 초기화 진행하지 않기 위해 주석 처리
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+<!--
+        어플리케이션 실행할 때마다 데이터베이스 초기화 진행하지 않기 위해 주석 처리
 -->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
         </properties>
     </persistence-unit>
 
