@@ -114,6 +114,7 @@ public class JpaMain {
 
           */
 
+          /*
              // 준영속 상태
 
              Member member = em.find(Member.class, 150L); //영속 상태
@@ -123,7 +124,27 @@ public class JpaMain {
 
              System.out.println("=======================");
              tx.commit(); // 커밋되지 않음 !!
+          */
 
+             // 기본 키 매핑 학습을 위한 로직
+             Member member1 = new Member();
+             member1.setUsername("A");
+
+             Member member2 = new Member();
+             member2.setUsername("B");
+
+             Member member3 = new Member();
+             member3.setUsername("C");
+
+             System.out.println("=======================");
+             em.persist(member1);
+             em.persist(member2);
+             em.persist(member3);
+             System.out.println("=======================");
+
+             System.out.println("member1: " + member1.getId());
+             System.out.println("member2: " + member2.getId());
+             System.out.println("member3: " + member3.getId());
 
          } catch (Exception e) {
             tx.rollback(); //예외 발생 시 롤백 발생
