@@ -2,6 +2,8 @@ package hellojpa;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 public class JpaMain {
 
     public static void main(String[] args) {
@@ -126,6 +128,7 @@ public class JpaMain {
              tx.commit(); // 커밋되지 않음 !!
           */
 
+         /*
              // 기본 키 매핑 학습을 위한 로직
              Member member1 = new Member();
              member1.setUsername("A");
@@ -145,6 +148,49 @@ public class JpaMain {
              System.out.println("member1: " + member1.getId());
              System.out.println("member2: " + member2.getId());
              System.out.println("member3: " + member3.getId());
+        */
+
+         /*
+             //단방향 연관관계 매핑 : 객체 참조와 DB 외래키를 매핑
+             Team team = new Team();
+             team.setName("TeamA");
+             em.persist(team);
+
+             Member member = new Member();
+             member.setUsername("member1");
+             member.setTeam(team);
+             em.persist(member);
+
+             Member findMember = em.find(Member.class, member.getId());
+
+             Team findTeam = findMember.getTeam();
+        */
+
+             //양방향 연관관계 매핑 : 객체 참조와 DB 외래키를 매핑
+
+             Team team = new Team();
+             team.setName("TeamA");
+             em.persist(team);
+
+             Member member = new Member();
+             member.setUsername("member1");
+             member.setTeam(team);
+             em.persist(member);
+
+             em.flush();
+             em.clear();
+
+             Member findMember = em.find(Member.class, member.getId());
+             System.out.println(findMember.getUsername());
+             List<Member> members = findMember.getTeam().getMembers();
+
+             for (Member m : members) {
+                 //DB에 flush()를 해야 밑에 출력문이 정상적으로 실행된다
+                 //이유 : DB에 INSERT 쿼리를 날리지 않는다면 Team에는 Member 정보가 없기 때문에 밑에 출력문이 실행되지 않는다.
+                 System.out.println("m = " + m.getUsername());
+             }
+
+             tx.commit();
 
          } catch (Exception e) {
             tx.rollback(); //예외 발생 시 롤백 발생
