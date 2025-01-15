@@ -2,7 +2,9 @@ package hellojpa;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 // 2. SEQUENCE 전략 : 데이터베이스 시퀀스를 이용
@@ -22,7 +24,7 @@ import java.util.Date;
 public class Member {
 
     @Id //PK
-    //@GeneratedValue (strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR" )
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR" )
     //@GeneratedValue(strategy = GenerationType.TABLE, generator = "MEMBER_SEQ_GENERATOR")
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @GeneratedValue
@@ -33,10 +35,17 @@ public class Member {
     private String username;
 
     @ManyToOne //MEMBER 입장에서 TEAM과 다대일 관계
-    @JoinColumn(name = "TEAM_ID") //join할 때 상대 클래스의 참고할 기본키 컬럼
+    @JoinColumn(name = "TEAM_ID") //join할 때 상대 클래스(Team)의 참고할 기본키(TEAM_ID) 컬럼
     private Team team;
 
-    /*private Integer age;
+    @OneToOne
+    @JoinColumn(name = "LOCKER_ID") //join할 때 상대 클래스(Locker)의 참고할 기본키(LOCKER_ID) 칼럼
+    private Locker locker;
+
+    @OneToMany(mappedBy = "member")
+    private List<MemberProduct> memberProducts = new ArrayList<>();
+
+    /* private Integer age;
 
     @Enumerated(EnumType.STRING) //enum 타입을 명시 : enum 이름(USER, ADMIN)을 DB에 저장
     private RoleType roleType;
