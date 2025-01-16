@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 
-public class Member {
+public class Member extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO) //AUTO는 기본값이라 생략 가능
     @Column(name = "MEMBER_ID")
