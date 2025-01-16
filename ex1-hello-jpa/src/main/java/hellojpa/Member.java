@@ -2,6 +2,7 @@ package hellojpa;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.List;
         pkColumnValue = "MEMBER_SEQ", allocationSize = 1)*/
 
 @Entity //JPA가 관리하는 객체
-public class Member {
+public class Member extends BaseEntity {
 
     @Id //PK
     //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR" )
@@ -44,6 +45,8 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<MemberProduct> memberProducts = new ArrayList<>();
+
+
 
     /* private Integer age;
 

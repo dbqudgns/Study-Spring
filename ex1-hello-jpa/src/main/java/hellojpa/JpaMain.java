@@ -2,6 +2,7 @@ package hellojpa;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class JpaMain {
@@ -166,7 +167,9 @@ public class JpaMain {
              Team findTeam = findMember.getTeam();
         */
 
-             //양방향 연관관계 매핑 : 객체 참조와 DB 외래키를 매핑
+        /*
+
+            //양방향 연관관계 매핑 : 객체 참조와 DB 외래키를 매핑
 
              Team team = new Team();
              team.setName("TeamA");
@@ -189,6 +192,38 @@ public class JpaMain {
                  //이유 : DB에 INSERT 쿼리를 날리지 않는다면 Team에는 Member 정보가 없기 때문에 밑에 출력문이 실행되지 않는다.
                  System.out.println("m = " + m.getUsername());
              }
+         */
+
+         /*
+
+             //고급 매핑 : 조인 전략, 테이블 전략, 구현 클래스마다 테이블 전략
+
+             Movie movie = new Movie();
+             movie.setDirector("aaaa");
+             movie.setDirector("bbbb");
+             movie.setName("바람과함께사라지다");
+             movie.setPrice(10000);
+
+             em.persist(movie);
+
+             em.flush();
+             em.clear();
+
+             Movie findMovie = em.find(Movie.class, movie.getId());
+             System.out.println("findMovie: " + findMovie);
+         */
+
+             //@MappedSuperclass 적용
+
+             Member member = new Member();
+             member.setUsername("user1");
+             member.setCreatedBy("kim");
+             member.setCreatedDate(LocalDateTime.now());
+
+             em.persist(member);
+
+             em.flush();
+             em.clear();
 
              tx.commit();
 
