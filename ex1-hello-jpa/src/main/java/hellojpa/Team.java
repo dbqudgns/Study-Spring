@@ -15,8 +15,10 @@ public class Team extends BaseEntity {
 
     private String name;
 
+
     @OneToMany(mappedBy = "team") //Member 엔티티의 team 필드와 매핑이 되어 있다
     private List<Member> members = new ArrayList<Member>();
+
 
     public Long getId() {
         return id;
@@ -41,4 +43,6 @@ public class Team extends BaseEntity {
     public void setMembers(List<Member> members) {
         this.members = members;
     }
+
+
 }

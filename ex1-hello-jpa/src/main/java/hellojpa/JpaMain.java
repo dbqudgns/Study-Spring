@@ -213,6 +213,7 @@ public class JpaMain {
              System.out.println("findMovie: " + findMovie);
          */
 
+         /*
              //@MappedSuperclass 적용
 
              Member member = new Member();
@@ -227,6 +228,66 @@ public class JpaMain {
 
              tx.commit();
 
+         */
+
+         /*
+             //프록시
+             Member member = new Member();
+             member.setUsername("hello");
+
+             em.persist(member);
+
+             em.flush();
+             em.clear();
+
+            // Member findMember = em.find(Member.class, member.getId());
+             Member findMember = em.getReference(Member.class, member.getId());
+             System.out.println("findMember = " + findMember.getClass());
+             System.out.println("findMember.id = " + findMember.getId());
+             System.out.println("findMEmber.username = " + findMember.getUsername());
+         */
+
+         /*
+             //즉시 로딩과 지연 로딩
+
+             Team team = new Team();
+             team.setName("teamA");
+             em.persist(team);
+
+             Member member = new Member();
+             member.setUsername("member1");
+             member.setTeam(team);
+             em.persist(member);
+
+             em.flush();
+             em.clear();
+
+             Member findMember = em.find(Member.class, member.getId());
+
+             System.out.println("findMember = " + findMember.getTeam().getClass());
+
+             System.out.println("=============");
+             findMember.getTeam().getName(); //지연 로딩으로 생성된 Team 프록시 객체 초기화 (실제 team을 사용하는 시점에 초기화 발생)
+             System.out.println("=============");
+         */
+
+             Child child1 = new Child();
+             Child child2 = new Child();
+
+             Parent parent = new Parent();
+             parent.addChild(child1);
+             parent.addChild(child2);
+
+             em.persist(parent);
+
+             em.flush();
+             em.clear();
+
+             Parent findParent = em.find(Parent.class, parent.getId());
+             findParent.getChildList().remove(0); //고아 객체 제거
+
+             tx.commit();
+
          } catch (Exception e) {
             tx.rollback(); //예외 발생 시 롤백 발생
         }
@@ -236,4 +297,6 @@ public class JpaMain {
 
         emf.close();
     }
+
+
 }

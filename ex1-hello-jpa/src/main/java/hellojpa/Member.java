@@ -35,17 +35,20 @@ public class Member extends BaseEntity {
     @Column(name = "USERNAME") //DB에는 "name"로 속성명이 지정된다.
     private String username;
 
-    @ManyToOne //MEMBER 입장에서 TEAM과 다대일 관계
+    @ManyToOne(fetch = FetchType.LAZY) //MEMBER 입장에서 TEAM과 다대일 관계, 지연 로딩(LAZY)
     @JoinColumn(name = "TEAM_ID") //join할 때 상대 클래스(Team)의 참고할 기본키(TEAM_ID) 컬럼
     private Team team;
 
+    /*
     @OneToOne
     @JoinColumn(name = "LOCKER_ID") //join할 때 상대 클래스(Locker)의 참고할 기본키(LOCKER_ID) 칼럼
     private Locker locker;
+    */
 
+    /*
     @OneToMany(mappedBy = "member")
     private List<MemberProduct> memberProducts = new ArrayList<>();
-
+    */
 
 
     /* private Integer age;
