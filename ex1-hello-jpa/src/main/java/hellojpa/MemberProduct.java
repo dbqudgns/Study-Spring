@@ -11,9 +11,11 @@ public class MemberProduct {
     @Column(name = "MEMBER_PRODUCT_ID")
     private Long id;
 
+  /*
     @ManyToOne
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
+  */
 
     @ManyToOne
     @JoinColumn(name = "PRODUCT_ID")

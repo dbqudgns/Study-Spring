@@ -14,7 +14,7 @@ public class Category extends BaseEntity{
 
     private String name;
 
-    @ManyToOne //여러 개의 하위 카테고리(Many)가 하나의 상위 카테고리(One)를 참조한다.
+    @ManyToOne(fetch = FetchType.LAZY) //여러 개의 하위 카테고리(Many)가 하나의 상위 카테고리(One)를 참조한다.
     @JoinColumn(name = "PARENT_ID") //자기 자신을 호출하는 self join이다. ( self join 할 때 키는 @JoinColumn에서 지정한 "PARENT_ID(FK)"을 사용한다.)
     private Category parent;
 
