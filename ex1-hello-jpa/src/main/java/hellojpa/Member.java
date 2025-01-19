@@ -3,9 +3,7 @@ package hellojpa;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 // 2. SEQUENCE 전략 : 데이터베이스 시퀀스를 이용
@@ -36,8 +34,41 @@ public class Member extends BaseEntity {
     private String username;
 
     @ManyToOne(fetch = FetchType.LAZY) //MEMBER 입장에서 TEAM과 다대일 관계, 지연 로딩(LAZY)
-    @JoinColumn(name = "TEAM_ID") //join할 때 상대 클래스(Team)의 참고할 기본키(TEAM_ID) 컬럼
+    @JoinColumn(name = "TEAM_ID") //Member 테이블의 외래키(TEAM_ID)를 사용 
     private Team team;
+
+    @Embedded //생략 가능
+    private Period workPeriod;
+
+    @Embedded //생략 가능
+    private Address homeaddress;
+
+    @ElementCollection
+    @CollectionTable(name = "FAVORITE_FOOD", joinColumns =
+        @JoinColumn(name = "MEMBER_ID") //FAVORITE_FOOD 테이블의 외래키(MEMBER_ID)를 사용
+    )
+    @Column(name = "FOOD_NAME")
+    private Set<String> favoriteFoods = new HashSet<>();
+
+    /*
+    @ElementCollection
+    @CollectionTable(name = "ADDRESS", joinColumns =
+        @JoinColumn(name = "MEMBER_ID")
+    )
+    private List<Address> addressHistory = new ArrayList<>();
+    */
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "MEMBER_ID") //ADDRESS(AddressEntity) 테이블의 외래키를 사용
+    private List<AddressEntity> addressHistory = new ArrayList<>();
+
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "city", column=@Column(name = "WORK_CITY")),
+            @AttributeOverride(name = "street", column=@Column(name = "WORK_STREET")),
+            @AttributeOverride(name = "zipcode", column=@Column(name = "WORK_ZIPCODE"))
+    })
+    private Address workaddress;
 
     /*
     @OneToOne
@@ -86,5 +117,45 @@ public class Member extends BaseEntity {
 
     public void setTeam(Team team) {
         this.team = team;
+    }
+
+    public Period getWorkPeriod() {
+        return workPeriod;
+    }
+
+    public void setWorkPeriod(Period workPeriod) {
+        this.workPeriod = workPeriod;
+    }
+
+    public Address getHomeaddress() {
+        return homeaddress;
+    }
+
+    public void setHomeaddress(Address homeaddress) {
+        this.homeaddress = homeaddress;
+    }
+
+    public Set<String> getFavoriteFoods() {
+        return favoriteFoods;
+    }
+
+    public void setFavoriteFoods(Set<String> favoriteFoods) {
+        this.favoriteFoods = favoriteFoods;
+    }
+
+    public Address getWorkaddress() {
+        return workaddress;
+    }
+
+    public void setWorkaddress(Address workaddress) {
+        this.workaddress = workaddress;
+    }
+
+    public List<AddressEntity> getAddressHistory() {
+        return addressHistory;
+    }
+
+    public void setAddressHistory(List<AddressEntity> addressHistory) {
+        this.addressHistory = addressHistory;
     }
 }

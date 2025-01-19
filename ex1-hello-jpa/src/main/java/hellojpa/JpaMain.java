@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 public class JpaMain {
 
@@ -271,6 +272,9 @@ public class JpaMain {
              System.out.println("=============");
          */
 
+         /*
+
+             //영속성 전이와 고아 객체 삭제
              Child child1 = new Child();
              Child child2 = new Child();
 
@@ -285,6 +289,70 @@ public class JpaMain {
 
              Parent findParent = em.find(Parent.class, parent.getId());
              findParent.getChildList().remove(0); //고아 객체 제거
+
+          */
+
+         /*
+
+             //임베디드 타입 적용
+
+             Member member = new Member();
+             member.setUsername("hello");
+             member.setHomeaddress(new Address("city", "street", "zipcode"));
+             member.setWorkPeriod(new Period());
+             em.persist(member);
+
+         */
+
+             //값 타입 컬렉션 사용 저장 예제
+
+             Member member = new Member();
+             member.setUsername("member1");
+             member.setHomeaddress(new Address("homeCity", "street", "10000" ));
+
+             member.getFavoriteFoods().add("치킨");
+             member.getFavoriteFoods().add("족발");
+             member.getFavoriteFoods().add("피자");
+
+             //값 타입 엔티티 사용할 때
+             member.getAddressHistory().add(new AddressEntity("old1", "street", "10000"));
+             member.getAddressHistory().add(new AddressEntity("old2", "street", "10000"));
+
+             em.persist(member);
+
+             //값 타입 컬렉션 조회 예제
+
+             em.flush();
+             em.clear();
+
+             System.out.println("======START======");
+             Member findMember = em.find(Member.class, member.getId());
+
+
+            //값 타입 컬렉션 사용할 때
+            /*
+            List<Address> addressHistory = findMember.getAddressHistory();
+             for (Address address : addressHistory) {
+                 System.out.println("address = " + address.getCity()); //값 타입 컬렉션은 지연 로딩 전략을 사용한다
+             }
+            */
+
+             Set<String> favoriteFoods = findMember.getFavoriteFoods();
+             for (String favoriteFood : favoriteFoods) {
+                 System.out.println("favoriteFood = " + favoriteFood);
+             }
+
+             //값 타입 컬렉션 수정 예제
+
+             //치킨->한식
+             System.out.println("======FAVORITEFOODS======");
+             findMember.getFavoriteFoods().remove("치킨");
+             findMember.getFavoriteFoods().add("한식");
+
+             //old1->new1 : 값 타입 컬렉션 사용할 때
+             System.out.println("======ADDRESS======");
+            /* findMember.getAddressHistory().remove(new Address("old1", "street", "10000"));
+             findMember.getAddressHistory().add(new Address("new1", "street", "10000"));*/
 
              tx.commit();
 
