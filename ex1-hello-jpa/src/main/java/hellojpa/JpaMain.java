@@ -1,6 +1,9 @@
 package hellojpa;
 
 import jakarta.persistence.*;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -304,6 +307,7 @@ public class JpaMain {
 
          */
 
+         /*
              //값 타입 컬렉션 사용 저장 예제
 
              Member member = new Member();
@@ -330,12 +334,12 @@ public class JpaMain {
 
 
             //값 타입 컬렉션 사용할 때
-            /*
-            List<Address> addressHistory = findMember.getAddressHistory();
-             for (Address address : addressHistory) {
-                 System.out.println("address = " + address.getCity()); //값 타입 컬렉션은 지연 로딩 전략을 사용한다
-             }
-            */
+
+         //   List<Address> addressHistory = findMember.getAddressHistory();
+           //  for (Address address : addressHistory) {
+          //       System.out.println("address = " + address.getCity()); //값 타입 컬렉션은 지연 로딩 전략을 사용한다
+         //    }
+
 
              Set<String> favoriteFoods = findMember.getFavoriteFoods();
              for (String favoriteFood : favoriteFoods) {
@@ -351,8 +355,41 @@ public class JpaMain {
 
              //old1->new1 : 값 타입 컬렉션 사용할 때
              System.out.println("======ADDRESS======");
-            /* findMember.getAddressHistory().remove(new Address("old1", "street", "10000"));
-             findMember.getAddressHistory().add(new Address("new1", "street", "10000"));*/
+            // findMember.getAddressHistory().remove(new Address("old1", "street", "10000"));
+            // findMember.getAddressHistory().add(new Address("new1", "street", "10000"));
+         */
+
+         /*
+
+             //JPQL 맛보기
+             List<Member> resultList = em.createQuery("select m From Member m where m.username like '%kim%'",
+                     Member.class).getResultList(); // Member : 테이블이 아닌 엔티티 / m : Member 객체 자체
+
+             for (Member member : resultList) {
+                 System.out.println("member = " + member);
+             }
+
+
+             //Criteria : JPQL의 작성을 도와주는 빌더 클래스 (자바 코드 기반이라 안전하게 JPQL 작성 가능)
+             //1. Criteria 사용 준비
+             CriteriaBuilder cb = em.getCriteriaBuilder();
+             CriteriaQuery<Member> query = cb.createQuery(Member.class);
+
+             //2. 루트 클래스 (조회를 시작할 클래스)
+             Root<Member> m = query.from(Member.class);
+
+             //3. 쿼리 생성
+             CriteriaQuery<Member> cq = query.select(m).where(cb.equal(m.get("username"), "kim"));
+             List<Member> resultList = em.createQuery(cq).getResultList();
+
+
+
+             //네이티브 SQL 사용
+
+             List<Member> resultList = em.createNativeQuery("select MEMBER_ID, city, street, zipcode, USERNAME from MEMBER", Member.class)
+                     .getResultList();
+
+          */
 
              tx.commit();
 
