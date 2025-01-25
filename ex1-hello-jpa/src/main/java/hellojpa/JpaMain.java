@@ -248,7 +248,8 @@ public class JpaMain {
              Member findMember = em.getReference(Member.class, member.getId());
              System.out.println("findMember = " + findMember.getClass());
              System.out.println("findMember.id = " + findMember.getId());
-             System.out.println("findMEmber.username = " + findMember.getUsername());
+             System.out.println("findMember.username = " + findMember.getUsername());
+
          */
 
          /*

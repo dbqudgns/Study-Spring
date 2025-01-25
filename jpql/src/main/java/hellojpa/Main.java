@@ -148,6 +148,7 @@ public class Main {
 
             */
 
+            /*
 
             //JPQL 기본 함수
 
@@ -192,6 +193,57 @@ public class Main {
             for(String userFunction : resultList2) {
                 System.out.println("userFunction = " + userFunction);
             }
+
+            */
+
+
+            //패치 조인 : 연관된 엔티티나 컬렉션을 SQL 한번에 함께 조회하는 기능
+
+            Team teamA = new Team();
+            teamA.setName("팀A");
+            em.persist(teamA);
+
+            Team teamB = new Team();
+            teamB.setName("팀B");
+            em.persist(teamB);
+
+            Member member1 = new Member();
+            member1.setUsername("회원1");
+            member1.setTeam(teamA);
+            em.persist(member1);
+
+            Member member2 = new Member();
+            member2.setUsername("회원2");
+            member2.setTeam(teamB);
+            em.persist(member2);
+
+            Member member3 = new Member();
+            member3.setUsername("회원3");
+            member3.setTeam(teamB);
+            em.persist(member3);
+
+            em.flush();
+            em.clear();
+
+            String query = "select m From Member m join fetch m.team"; //엔티티 패치 조인 적용 inner join
+            String query2 = "select t From Team t join fetch t.members"; //컬렉션 패치 조인 적용
+
+            List<Member> resultMember = em.createQuery(query, Member.class).getResultList();
+            List<Team> resultTeam = em.createQuery(query2, Team.class).getResultList();
+
+            //resultMember는 프록시 객체가 아닌 실제 Member 엔티티를 가져온다. 이유 : 패치 조인으로 인해
+            for(Member member : resultMember) {
+                System.out.println("username = " + member.getUsername() + "," + "teamName = " + member.getTeam().getName());
+            }
+
+            for(Team team : resultTeam) {
+                System.out.println("team = " + team.getName() + " | members = " + team.getMembers().size());
+                for (Member member : team.getMembers()) {
+                    System.out.println("-> username = " + member.getUsername() + ", member = " + member);
+                }
+            }
+
+
 
             tx.commit();
 
