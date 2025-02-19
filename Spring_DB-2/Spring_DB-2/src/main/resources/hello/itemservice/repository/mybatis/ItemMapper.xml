@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace : 앞서 만든 매퍼 인터페이스(ItemMapper)를 지정해야 한다.-->
+<mapper namespace="hello.itemservice.repository.mybatis.ItemMapper">
+
+    <!--   id : 매퍼 인터페이스에 설정한 메서드 이름
+           userGeneratedKeys : 데이터베이스가 키를 생성해주는 IDENTITY 전략일 때 사용
+           keyProperty : DB에 생성된 객체 키의 속성명을 지정 => Insert가 끝나면 item 객체의 id 속성에 생성된 값이 입력된다.
+           #{} : 매퍼에서 넘긴 객체의 속성명 즉, 파라미터를 적용할 때 사용-->
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        insert into item (item_name, price, quantity)
+        values (#{itemName}, #{price}, #{quantity})
+        </insert>
+
+    <update id="update">
+        update item
+        set item_name=#{updateParam.itemName},
+            price=#{updateParam.price},
+            quantity=#{updateParam.quantity}
+        where id = #{id}
+    </update>
+
+
+<!--    resultType : 반환 타입(Item)을 명시하면 된다. => application.properties에서 패키지명을 적어놨기 때문에 생략가능-->
+    <select id="findById" resultType="Item">
+        select id, item_name, price, quantity
+        from item
+        where id = #{id}
+    </select>
+
+<!--    <where>, <if> : 동적 쿼리 문법
+        예제에서 <if>가 모두 실패하면 SQL where을 만들지 않는다.
+        예제에서 <if>가 하나라도 성공하면 처음 나타나는 and를 where로 변환해준다. -->
+    <select id="findAll" resultType="Item">
+        select id, item_name, price, quantity
+        from item
+        <where>
+            <if test="itemName != null and itemName != ''">
+                and item_name like concat('%', #{itemName}, '%')
+            </if>
+
+            <if test="maxPrice != null">
+                and price &lt;= #{maxPrice}  <!-- &lt; => <(왼쪽부등호) -->
+            </if>
+        </where>
+    </select>
+
+</mapper>
