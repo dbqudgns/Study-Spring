@@ -28,7 +28,7 @@ public class OrderRepository {
     }
 
     /** JPQL 조회 */
-    public List<Order> findAll(OrderSearch orderSearch) {
+    public List<Order> findAllByString(OrderSearch orderSearch) {
 
         String jpql = "select o From Order o join o.member m";
         boolean isFirstCondition = true;
@@ -60,14 +60,14 @@ public class OrderRepository {
                 .setMaxResults(1000); // 최대 1000건 조회
 
         if (orderSearch.getOrderStatus() != null) {
-            query = query.setParameter("name", orderSearch.getMemberName());
+            query = query.setParameter("status", orderSearch.getOrderStatus());
         }
 
         if (StringUtils.hasText(orderSearch.getMemberName())) {
             query = query.setParameter("name", orderSearch.getMemberName());
         }
 
-        return query.getResultList();
+        return query.getResultList(); // 쿼리 호출
     }
 
     /** JPA Criteria 조회 */

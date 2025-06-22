@@ -20,12 +20,14 @@ public class MemberController {
 
     private final MemberService memberService;
 
+    // 회원 생성 폼
     @GetMapping("/members/new")
     public String createForm(Model model) {
         model.addAttribute("memberForm", new MemberForm());
         return "members/createMemberForm";
     }
 
+    // 회원 생성
     @PostMapping("/members/new")
     public String create(@Valid MemberForm form, BindingResult result) {
 
@@ -40,9 +42,10 @@ public class MemberController {
 
         memberService.join(member);
 
-        return "redirect:/";
+        return "redirect:/members";
     }
 
+    // 회원 전체 폼
     @GetMapping("/members")
     public String list(Model model) {
         List<Member> members = memberService.findMembers();

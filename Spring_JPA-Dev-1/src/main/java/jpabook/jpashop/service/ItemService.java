@@ -31,4 +31,13 @@ public class ItemService {
         return itemRepository.findOne(itemId);
     }
 
+    // 상품 수정
+    @Transactional
+    public void updateItem(Long id, String name, int price, int stockQuantity) {
+        Item item = itemRepository.findOne(id);
+        item.setName(name);
+        item.setPrice(price);
+        item.setStockQuantity(stockQuantity); // item 객체는 영속 상태이므로 Dirty Checking 발생
+    }
+
 }
