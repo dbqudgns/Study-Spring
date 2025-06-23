@@ -32,6 +32,13 @@ public class MemberService {
         }
     }
 
+    // 회원 수정
+    @Transactional
+    public void update(Long id, String name) {
+        Member findMember = memberRepository.findOne(id);
+        findMember.setName(name); // 변경 감지 적용
+    }
+
     // 전체 회원 조회
     public List<Member> findMembers() {
         return memberRepository.findAll();
