@@ -15,9 +15,11 @@ import java.util.List;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 /**
- * @Transactional(readOnly = true)을 안 써도 Lazy 로딩은 유지된다.
- * 하지만 트랜잭션이 없으면 지연 로딩 중에 예외(트랜잭션 설정을 안해서 프록시 객체가 없어 DB와 연결이 끊김)가 나기 때문에,
- * 조회 메서드에도 @Transactional(readOnly = true)를 쓰는 게 안전하다. */
+ @Transactional(readOnly = true)를 명시하지 않아도
+ → 프록시 객체는 생성되고,
+ → 엔티티의 Lazy 로딩 설정도 유지된다.
+ 그러나 중요한 건 "트랜잭션의 범위 안에서만 Lazy 로딩이 안전하게 작동한다"는 점 => 예외가 발생함
+ */
 public class OrderService {
 
     private final MemberRepository memberRepository;

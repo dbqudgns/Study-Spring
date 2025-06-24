@@ -101,4 +101,14 @@ public class OrderRepository {
         return query.getResultList();
     }
 
+    public List<Order> findAllWithMemberDelivery() {
+        return em.createQuery(
+                "select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d", Order.class)
+                .getResultList();
+    } // fetch join으로 member와 delivery는 조회된 상태이므로 지연로딩이 발생하지 않는다.
+
+
+
 }
