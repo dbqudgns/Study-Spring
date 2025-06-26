@@ -107,8 +107,27 @@ public class OrderRepository {
                         " join fetch o.member m" +
                         " join fetch o.delivery d", Order.class)
                 .getResultList();
-    } // fetch join으로 member와 delivery는 조회된 상태이므로 지연로딩이 발생하지 않는다.
+    } // fetch join으로 member와 delivery는 조회된 상태이므로 영속성 컨텍스트에 있음 !
 
+    public List<Order> findAllWithItem() {
+        return em.createQuery(
+                "select distinct o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d" +
+                        " join fetch o.orderItems oi" +
+                        " join fetch oi.item i", Order.class)
+                .getResultList();
 
+    }
+
+    public List<Order> findAllWithMemberDelivery(int offset, int limit) {
+        return em.createQuery(
+                "select o from Order o" +
+                        " join fetch o.member m" +
+                        " join fetch o.delivery d", Order.class)
+                .setFirstResult(offset) // offset : 조회할 결과의 시작 위치 => 배열의 인덱스 개념으로 이해하자
+                .setMaxResults(limit) // limit : 한 번에 최대 몇 건을 조회할지를 지정 => 한 번에 최대 몇 개의 엔티티를 가져올건지
+                .getResultList();
+    }
 
 }

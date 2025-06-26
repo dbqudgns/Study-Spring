@@ -12,6 +12,7 @@ spring:
       hibernate:
 #        show_sql: true => System.out에 하이버네이트 실행 SQL을 남긴다.
          format_sql: true
+         default_batch_fetch_size: 1000
 
   thymeleaf: # default이지만 이런 설정이 있다는 것을 알기 위해 작성함
     prefix: classPath:/templates/

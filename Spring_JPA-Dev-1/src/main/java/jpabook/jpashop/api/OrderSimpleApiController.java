@@ -1,9 +1,6 @@
 package jpabook.jpashop.api;
 
-import jpabook.jpashop.domain.Address;
-import jpabook.jpashop.domain.Order;
-import jpabook.jpashop.domain.OrderSearch;
-import jpabook.jpashop.domain.OrderStatus;
+import jpabook.jpashop.domain.*;
 import jpabook.jpashop.repository.OrderRepository;
 import jpabook.jpashop.repository.order.simplequery.OrderSimpleQueryDto;
 import jpabook.jpashop.repository.order.simplequery.OrderSimpleQueryRepository;
@@ -36,12 +33,12 @@ public class OrderSimpleApiController {
      *   - 따라서, 이때 Member를 조회하는 쿼리가 나가게 되고 무한 루프가 수행된다.
      *   - 그래서 Hibernate5Module을 등록해 LAZY = null로 처리해야 한다.
      */
-    @GetMapping("/api/vi/simple-orders")
+    @GetMapping("/api/v1/simple-orders")
     public List<Order> ordersV1() {
         List<Order> all = orderRepository.findAllByString(new OrderSearch());
         for (Order order : all) {
-            order.getMember().getName(); // LAZY 강제 초기화 => 예외 발생 안함 ! why? Open Session in View(OSIV) 때문에
-            order.getDelivery().getAddress(); // LAZY 강제 초기화 => 예외 발생 안함 ! why? Open Session in View(OSIV) 때문에
+            order.getMember().getName(); // LAZY 강제 초기화 => @Transactional 설정 안했는데 예외 발생 안함 ! why? Open Session in View(OSIV) 때문에
+            order.getDelivery().getAddress(); // LAZY 강제 초기화 => @Transactional 설정 안했는데 예외 발생 안함 ! why? Open Session in View(OSIV) 때문에
         } // 원래는 LazyInitializationException이 발생하는게 정상이지만 OSIV로 인해 발생하지 않음
         return all;
     }
