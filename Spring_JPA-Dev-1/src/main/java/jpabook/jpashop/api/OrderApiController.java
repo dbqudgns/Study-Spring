@@ -2,6 +2,10 @@ package jpabook.jpashop.api;
 
 import jpabook.jpashop.domain.*;
 import jpabook.jpashop.repository.OrderRepository;
+import jpabook.jpashop.repository.order.query.OrderFlatDto;
+import jpabook.jpashop.repository.order.query.OrderItemQueryDto;
+import jpabook.jpashop.repository.order.query.OrderQueryDto;
+import jpabook.jpashop.repository.order.query.OrderQueryRepository;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -17,6 +24,7 @@ import java.util.stream.Collectors;
 public class OrderApiController {
 
     private final OrderRepository orderRepository;
+    private final OrderQueryRepository orderQueryRepsoitory;
 
     /**
      * V1. 엔티티 직접 노출
@@ -77,6 +85,48 @@ public class OrderApiController {
                 .collect(Collectors.toList());
 
         return result;
+    }
+
+    // 1 + N 발생하는 조회 쿼리
+    @GetMapping("/api/v4/orders")
+    public List<OrderQueryDto> ordersV4() {
+        return orderQueryRepsoitory.findOrderQueryDtos();
+    }
+
+    // IN 쿼리를 통해 1 + N 최적화
+    @GetMapping("/api/v5/orders")
+    public List<OrderQueryDto> ordersV5() {
+        return orderQueryRepsoitory.findAllByDto_optimization();
+    }
+
+    // 쿼리 한 번으로 조회
+    @GetMapping("/api/v6/orders")
+    public List<OrderQueryDto> orderV6() {
+
+        List<OrderFlatDto> orderFlats = orderQueryRepsoitory.findAllByDto_flat();
+
+        Map<Long, List<OrderItemQueryDto>> orderItemMap = new HashMap<>();
+        Map<Long, OrderQueryDto> orderMap = new HashMap<>();
+
+        orderFlats.forEach(orderFlat -> {
+            Long orderId = orderFlat.getOrderId();
+            if (orderMap.get(orderId) == null) {
+                orderMap.put(orderId, new OrderQueryDto(orderId, orderFlat.getName(), orderFlat.getOrderDate(), orderFlat.getOrderStatus(), orderFlat.getAddress()));
+            }
+
+            if (orderItemMap.get(orderId) == null) {
+                orderItemMap.put(orderId, new ArrayList<OrderItemQueryDto>());
+            }
+
+            orderItemMap.get(orderId).add(new OrderItemQueryDto(orderId, orderFlat.getItemName(), orderFlat.getOrderPrice(), orderFlat.getCount()));
+        });
+
+        orderItemMap.forEach((orderId, orderItem) -> {
+            orderMap.get(orderId).setOrderItems(orderItem);
+        });
+
+        return new ArrayList<OrderQueryDto>(orderMap.values());
+
     }
 
     @Getter
