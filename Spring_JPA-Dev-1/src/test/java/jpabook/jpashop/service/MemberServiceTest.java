@@ -1,11 +1,10 @@
 package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.Member;
-import jpabook.jpashop.repository.MemberRepository;
+import jpabook.jpashop.repository.MemberRepository_Old;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,7 +17,7 @@ class MemberServiceTest {
     MemberService memberService;
 
     @Autowired
-    MemberRepository memberRepository;
+    MemberRepository_Old memberRepositoryOld;
 
     @Test
     //@Rollback(false) => DB에 저장된 데이터를 확인하고 싶으면 Rollback를 false로 설정하면 됨
@@ -32,7 +31,7 @@ class MemberServiceTest {
         Long saveId = memberService.join(member);
 
         //then
-        assertEquals(member, memberRepository.findOne(saveId));
+        assertEquals(member, memberRepositoryOld.findOne(saveId));
     }
 
     @Test

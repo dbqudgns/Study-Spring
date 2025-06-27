@@ -1,11 +1,12 @@
 package jpabook.jpashop.repository;
 
+import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.*;
-import jpabook.jpashop.domain.Member;
+import jpabook.jpashop.domain.*;
 import jpabook.jpashop.domain.Order;
-import jpabook.jpashop.domain.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
@@ -14,10 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-@RequiredArgsConstructor
+
 public class OrderRepository {
 
     private final EntityManager em;
+    private final JPAQueryFactory query;
+
+    public OrderRepository(EntityManager em) {
+        this.em = em;
+        this.query = new JPAQueryFactory(em);
+    }
 
     public void save(Order order) {
         em.persist(order);
@@ -128,6 +135,32 @@ public class OrderRepository {
                 .setFirstResult(offset) // offset : 조회할 결과의 시작 위치 => 배열의 인덱스 개념으로 이해하자
                 .setMaxResults(limit) // limit : 한 번에 최대 몇 건을 조회할지를 지정 => 한 번에 최대 몇 개의 엔티티를 가져올건지
                 .getResultList();
+    }
+
+    /** QueryDSL 적용 */
+    public List<Order> findAll(OrderSearch orderSearch) {
+
+        QOrder order = QOrder.order;
+        QMember member = QMember.member;
+
+        return query
+                .select(order)
+                .from(order)
+                .join(order.member, member)
+                .where(statusEq(orderSearch.getOrderStatus()),
+                        nameLike(orderSearch.getMemberName()))
+                .limit(1000)
+                .fetch();
+    }
+
+    private BooleanExpression statusEq(OrderStatus orderStatus) {
+        if (orderStatus == null) return null;
+        return QOrder.order.status.eq(orderStatus);
+    }
+
+    private BooleanExpression nameLike(String name) {
+        if (!StringUtils.hasText(name)) return null;
+        return QMember.member.name.like(name);
     }
 
 }
