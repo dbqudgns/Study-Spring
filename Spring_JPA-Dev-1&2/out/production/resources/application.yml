@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/jpashop
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+#        show_sql: true => System.out에 하이버네이트 실행 SQL을 남긴다.
+         format_sql: true
+         default_batch_fetch_size: 1000
+
+  thymeleaf: # default이지만 이런 설정이 있다는 것을 알기 위해 작성함
+    prefix: classPath:/templates/
+    suffix: .html
+
+logging:
+  level:
+    org.hibernate.SQL: debug # logger를 통해 실행된 SQL을 DEBUG 레벨로 남긴다.
+    org.hibernate.orm.jdbc.bind: trace # 쿼리 파라미터 로그를 TRACE 레벨로 남긴다.
+
