@@ -4,34 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 포인트컷 - 예제 만들기">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/fileHashes.lock" afterDir="false" />
+    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 포인트컷 - execution 포인트컷 지시자 활용">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/hello/aop/AopApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/hello/aop/order/OrderRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/hello/aop/order/OrderService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/hello/aop/AopApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/hello/aop/AopTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/Gradle#20Test#20Executor#201.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-Gradle#20Test#20Executor#201.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/aop/order/aop/member/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/aop/member/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/aop/order/aop/member/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/aop/member/MemberServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/aop/order/aop/member/annotation/ClassAop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/aop/member/annotation/ClassAop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/aop/order/aop/member/annotation/MethodAop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/aop/member/annotation/MethodAop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hello/aop/pointcut/ExecutionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hello/aop/pointcut/ExecutionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +61,7 @@
     "JUnit.ExecutionTest.exactMatch.executor": "Run",
     "JUnit.ExecutionTest.executor": "Run",
     "JUnit.ExecutionTest.printMethod.executor": "Run",
+    "JUnit.WithinTest.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -117,22 +92,7 @@
       <recent name="hello.aop.order.aop" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ExecutionTest">
-    <configuration name="AopTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="aop.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hello.aop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hello.aop" />
-      <option name="MAIN_CLASS_NAME" value="hello.aop.AopTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.WithinTest">
     <configuration name="ExecutionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aop.test" />
       <extension name="coverage">
@@ -196,6 +156,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WithinTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="aop.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.aop.pointcut.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.aop.pointcut" />
+      <option name="MAIN_CLASS_NAME" value="hello.aop.pointcut.WithinTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="aop.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="hello.aop.AopApplication" />
@@ -205,11 +180,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WithinTest" />
         <item itemvalue="JUnit.ExecutionTest" />
         <item itemvalue="JUnit.ExecutionTest.allMatch" />
         <item itemvalue="JUnit.ExecutionTest.exactMatch" />
         <item itemvalue="JUnit.ExecutionTest.printMethod" />
-        <item itemvalue="JUnit.AopTest" />
       </list>
     </recent_temporary>
   </component>
@@ -237,7 +212,7 @@
       <workItem from="1751973768226" duration="333000" />
       <workItem from="1752020433810" duration="9394000" />
       <workItem from="1752129269978" duration="3844000" />
-      <workItem from="1752134367253" duration="3141000" />
+      <workItem from="1752134367253" duration="4245000" />
     </task>
     <task id="LOCAL-00001" summary="dev : 스프링 AOP 이론 공부 및 실습">
       <option name="closed" value="true" />
@@ -287,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752132571804</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="dev : 스프링 AOP 포인트컷 - execution 포인트컷 지시자 활용">
+      <option name="closed" value="true" />
+      <created>1752138506761</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1752138506761</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,6 +288,7 @@
     <MESSAGE value="dev : 스프링 AOP 구현4 - 포인트컷 참조" />
     <MESSAGE value="dev : 스프링 AOP 구현5 - 어드바이스 순서" />
     <MESSAGE value="dev : 스프링 AOP 포인트컷 - 예제 만들기" />
-    <option name="LAST_COMMIT_MESSAGE" value="dev : 스프링 AOP 포인트컷 - 예제 만들기" />
+    <MESSAGE value="dev : 스프링 AOP 포인트컷 - execution 포인트컷 지시자 활용" />
+    <option name="LAST_COMMIT_MESSAGE" value="dev : 스프링 AOP 포인트컷 - execution 포인트컷 지시자 활용" />
   </component>
 </project>
