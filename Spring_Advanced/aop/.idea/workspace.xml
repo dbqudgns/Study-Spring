@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 구현5 - 어드바이스 순서">
+    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 구현6 - 어드바이스 종류">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/hello/aop/AopTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/hello/aop/AopTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hello/aop/AopTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hello/aop/AopTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="AnnotationType" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -64,7 +64,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.AopApplication.executor": "Run",
-    "git-widget-placeholder": "dev/0709",
+    "git-widget-placeholder": "dev/0710",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -76,35 +76,14 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="hello.aop.order.aop.member" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="hello.aop.order.aop" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AopTest">
-    <configuration name="AopTest.aopInfo" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;hello.aop.AopTest.aopInfo&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JUnit.ExecutionTest.printMethod">
     <configuration name="AopTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aop.test" />
       <extension name="coverage">
@@ -168,6 +147,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ExecutionTest.printMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="aop.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.aop.pointcut.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.aop.pointcut" />
+      <option name="MAIN_CLASS_NAME" value="hello.aop.pointcut.ExecutionTest" />
+      <option name="METHOD_NAME" value="printMethod" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="aop.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="hello.aop.AopApplication" />
@@ -177,11 +172,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ExecutionTest.printMethod" />
         <item itemvalue="JUnit.AopTest" />
         <item itemvalue="JUnit.AopTest.aopInfo" />
         <item itemvalue="JUnit.AopTest.exception" />
         <item itemvalue="JUnit.AopTest.success" />
-        <item itemvalue="Gradle.AopTest.aopInfo" />
       </list>
     </recent_temporary>
   </component>
@@ -208,6 +203,7 @@
       <workItem from="1751973623721" duration="126000" />
       <workItem from="1751973768226" duration="333000" />
       <workItem from="1752020433810" duration="9394000" />
+      <workItem from="1752129269978" duration="2152000" />
     </task>
     <task id="LOCAL-00001" summary="dev : 스프링 AOP 이론 공부 및 실습">
       <option name="closed" value="true" />
