@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 포인트컷 - execution 포인트컷 지시자 활용">
+    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 포인트컷 - within 포인트컷 지시자 활용">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,11 +35,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="JavaAutoRunManager">
-    <enabled-run-configurations>
-      <run-configuration type="JUnit" name="AopTest" />
-    </enabled-run-configurations>
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -57,6 +52,7 @@
     "JUnit.AopTest.exception.executor": "Run",
     "JUnit.AopTest.executor": "Run",
     "JUnit.AopTest.success.executor": "Run",
+    "JUnit.ArgsTest.argsVsExecution.executor": "Run",
     "JUnit.ExecutionTest.allMatch.executor": "Run",
     "JUnit.ExecutionTest.exactMatch.executor": "Run",
     "JUnit.ExecutionTest.executor": "Run",
@@ -70,7 +66,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.AopApplication.executor": "Run",
-    "git-widget-placeholder": "dev/0710",
+    "git-widget-placeholder": "dev/0711",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -92,7 +88,23 @@
       <recent name="hello.aop.order.aop" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.WithinTest">
+  <component name="RunManager" selected="JUnit.ArgsTest.argsVsExecution">
+    <configuration name="ArgsTest.argsVsExecution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="aop.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.aop.pointcut.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.aop.pointcut" />
+      <option name="MAIN_CLASS_NAME" value="hello.aop.pointcut.ArgsTest" />
+      <option name="METHOD_NAME" value="argsVsExecution" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ExecutionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aop.test" />
       <extension name="coverage">
@@ -140,22 +152,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExecutionTest.printMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="aop.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hello.aop.pointcut.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hello.aop.pointcut" />
-      <option name="MAIN_CLASS_NAME" value="hello.aop.pointcut.ExecutionTest" />
-      <option name="METHOD_NAME" value="printMethod" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="WithinTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aop.test" />
       <extension name="coverage">
@@ -180,11 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ArgsTest.argsVsExecution" />
         <item itemvalue="JUnit.WithinTest" />
         <item itemvalue="JUnit.ExecutionTest" />
         <item itemvalue="JUnit.ExecutionTest.allMatch" />
         <item itemvalue="JUnit.ExecutionTest.exactMatch" />
-        <item itemvalue="JUnit.ExecutionTest.printMethod" />
       </list>
     </recent_temporary>
   </component>
@@ -212,7 +208,8 @@
       <workItem from="1751973768226" duration="333000" />
       <workItem from="1752020433810" duration="9394000" />
       <workItem from="1752129269978" duration="3844000" />
-      <workItem from="1752134367253" duration="4245000" />
+      <workItem from="1752134367253" duration="4481000" />
+      <workItem from="1752216145745" duration="1185000" />
     </task>
     <task id="LOCAL-00001" summary="dev : 스프링 AOP 이론 공부 및 실습">
       <option name="closed" value="true" />
@@ -270,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752138506761</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="dev : 스프링 AOP 포인트컷 - within 포인트컷 지시자 활용">
+      <option name="closed" value="true" />
+      <created>1752139592349</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1752139592349</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,6 +294,7 @@
     <MESSAGE value="dev : 스프링 AOP 구현5 - 어드바이스 순서" />
     <MESSAGE value="dev : 스프링 AOP 포인트컷 - 예제 만들기" />
     <MESSAGE value="dev : 스프링 AOP 포인트컷 - execution 포인트컷 지시자 활용" />
-    <option name="LAST_COMMIT_MESSAGE" value="dev : 스프링 AOP 포인트컷 - execution 포인트컷 지시자 활용" />
+    <MESSAGE value="dev : 스프링 AOP 포인트컷 - within 포인트컷 지시자 활용" />
+    <option name="LAST_COMMIT_MESSAGE" value="dev : 스프링 AOP 포인트컷 - within 포인트컷 지시자 활용" />
   </component>
 </project>
