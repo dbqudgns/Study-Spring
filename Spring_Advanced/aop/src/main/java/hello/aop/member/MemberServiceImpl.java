@@ -14,5 +14,6 @@ public class MemberServiceImpl implements MemberService {
         return "ok";
     }
 
-    public String internal(String param) { return "ok"; }
+    @Override
+    public String internal(MyDTO myDTO) { return "ok"; }
 }
