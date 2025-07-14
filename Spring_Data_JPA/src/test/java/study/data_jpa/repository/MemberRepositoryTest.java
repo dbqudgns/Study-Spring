@@ -3,6 +3,10 @@ package study.data_jpa.repository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 import study.data_jpa.entity.Member;
@@ -78,5 +82,40 @@ class MemberRepositoryTest {
         assertThat(result.get(0).getAge()).isEqualTo(20);
         assertThat(result.size()).isEqualTo(1);
     }
+
+    // Spring Data JPA 페이징 처리 : Page, Slice 반환 테스트
+    @Test
+    public void page() throws Exception {
+        //given
+        memberRepository.save(new Member("member1", 10));
+        memberRepository.save(new Member("member2", 10));
+        memberRepository.save(new Member("member3", 10));
+        memberRepository.save(new Member("member4", 10));
+        memberRepository.save(new Member("member5", 10));
+
+        //when : 0번 인덱스부터 3개의 데이터를 조회하고 username을 기준으로 내림차순 정렬
+        PageRequest pageRequest = PageRequest.of(0, 3, Sort.by(Sort.Direction.DESC, "username"));
+        Page<Member> page = memberRepository.findPageByAge(10, pageRequest);
+        Slice<Member> slice = memberRepository.findSliceByAge(10, pageRequest);
+        Page<Member> pageJoin = memberRepository.findPageByAgeJoinQuery(10, pageRequest); // 실행 시 left join이 사용되지 않는다. => MemberRepository 주석문 참고
+
+        //then
+        List<Member> contentByPage = page.getContent(); // 조회된 데이터 반환
+        assertThat(contentByPage.size()).isEqualTo(page.getSize()); // 조회된 데이터 수
+        assertThat(contentByPage.size()).isEqualTo(page.getNumberOfElements()); // 현재 페이지에 나올 데이터 수
+        assertThat(page.getTotalElements()).isEqualTo(5); // 전체 데이터 수 => countQuery를 통해 알 수 있다.
+        assertThat(page.getNumber()).isEqualTo(0); // 페이지 번호
+        assertThat(page.getTotalPages()).isEqualTo(2); // 전체 페이지 번호 => totalCount / limit
+        assertThat(page.isFirst()).isTrue(); // 첫번째 항목인가 ?
+        assertThat(page.hasNext()).isTrue(); // 다음 페이지가 있는가 ?
+
+        List<Member> contentBySlice = slice.getContent(); // 조회된 데이터 반환
+        assertThat(contentBySlice.size()).isEqualTo(slice.getSize()); // 조회된 데이터 수
+        assertThat(contentBySlice.size()).isEqualTo(slice.getNumberOfElements()); // 현재 페이지에 나올 데이터 수
+        assertThat(slice.getNumber()).isEqualTo(0); // 페이지 번호
+        assertThat(slice.isFirst()).isTrue(); // 첫번째 항목인가 ?
+        assertThat(slice.hasNext()).isTrue(); // 다음 페이지가 있는가 ?
+    }
+
 
 }

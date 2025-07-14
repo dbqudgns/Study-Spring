@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b9a7b1e-7ab1-4656-9199-ee18f526a780" name="Changes" comment="dev : 이름 기반 파라미터 바인딩 및 컬렉션 파라미터 바인딩" />
+    <list default="true" id="7b9a7b1e-7ab1-4656-9199-ee18f526a780" name="Changes" comment="dev : 쿼리 메서드 기능 - 순수 JPA 페이징과 정렬">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/study/data_jpa/repository/MemberRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/study/data_jpa/repository/MemberRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/study/data_jpa/repository/MemberRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/study/data_jpa/repository/MemberRepositoryTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/study/data_jpa/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/data_jpa/repository/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/study/data_jpa/repository/MemberRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/study/data_jpa/repository/MemberRepositoryTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,9 +114,11 @@
     "JUnit.DataJpaApplicationTests.contextLoads.executor": "Run",
     "JUnit.MemberJpaRepositoryTest.basicCRUD.executor": "Run",
     "JUnit.MemberJpaRepositoryTest.findByUsernameAndAgeGreaterThan.executor": "Run",
+    "JUnit.MemberJpaRepositoryTest.paging.executor": "Run",
     "JUnit.MemberJpaRepositoryTest.testMember.executor": "Run",
     "JUnit.MemberRepositoryTest.executor": "Run",
     "JUnit.MemberRepositoryTest.findByUsernameAndAgeGreaterThan.executor": "Run",
+    "JUnit.MemberRepositoryTest.page.executor": "Run",
     "JUnit.MemberRepositoryTest.testMember.executor": "Run",
     "JUnit.MemberTest.testEntity.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -123,7 +131,7 @@
     "Spring Boot.DataJpaApplication.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "dev/0714",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -145,23 +153,7 @@
       <recent name="study.data_jpa.repository" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MemberRepositoryTest.findByUsernameAndAgeGreaterThan">
-    <configuration name="MemberJpaRepositoryTest.basicCRUD" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="data-jpa.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="study.data_jpa.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="study.data_jpa.repository" />
-      <option name="MAIN_CLASS_NAME" value="study.data_jpa.repository.MemberJpaRepositoryTest" />
-      <option name="METHOD_NAME" value="basicCRUD" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.MemberRepositoryTest.page">
     <configuration name="MemberJpaRepositoryTest.findByUsernameAndAgeGreaterThan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-jpa.test" />
       <extension name="coverage">
@@ -173,6 +165,22 @@
       <option name="PACKAGE_NAME" value="study.data_jpa.repository" />
       <option name="MAIN_CLASS_NAME" value="study.data_jpa.repository.MemberJpaRepositoryTest" />
       <option name="METHOD_NAME" value="findByUsernameAndAgeGreaterThan" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberJpaRepositoryTest.paging" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="data-jpa.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="study.data_jpa.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="study.data_jpa.repository" />
+      <option name="MAIN_CLASS_NAME" value="study.data_jpa.repository.MemberJpaRepositoryTest" />
+      <option name="METHOD_NAME" value="paging" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -209,17 +217,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MemberTest.testEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MemberRepositoryTest.page" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-jpa.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="study.data_jpa.entity.*" />
+          <option name="PATTERN" value="study.data_jpa.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="study.data_jpa.entity" />
-      <option name="MAIN_CLASS_NAME" value="study.data_jpa.entity.MemberTest" />
-      <option name="METHOD_NAME" value="testEntity" />
+      <option name="PACKAGE_NAME" value="study.data_jpa.repository" />
+      <option name="MAIN_CLASS_NAME" value="study.data_jpa.repository.MemberRepositoryTest" />
+      <option name="METHOD_NAME" value="page" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -234,11 +242,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MemberRepositoryTest.page" />
+        <item itemvalue="JUnit.MemberJpaRepositoryTest.paging" />
         <item itemvalue="JUnit.MemberRepositoryTest.findByUsernameAndAgeGreaterThan" />
         <item itemvalue="JUnit.MemberJpaRepositoryTest.findByUsernameAndAgeGreaterThan" />
         <item itemvalue="JUnit.MemberRepositoryTest" />
-        <item itemvalue="JUnit.MemberJpaRepositoryTest.basicCRUD" />
-        <item itemvalue="JUnit.MemberTest.testEntity" />
       </list>
     </recent_temporary>
   </component>
@@ -262,6 +270,7 @@
       <workItem from="1751189282244" duration="257000" />
       <workItem from="1751268486678" duration="5479000" />
       <workItem from="1751784124137" duration="5016000" />
+      <workItem from="1752477460587" duration="4725000" />
     </task>
     <task id="LOCAL-00001" summary="dev : JPA 1&amp;2 폴더명 변경">
       <option name="closed" value="true" />
@@ -335,7 +344,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751788830339</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="dev : 쿼리 메서드 기능 - 순수 JPA 페이징과 정렬">
+      <option name="closed" value="true" />
+      <created>1752479351545</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1752479351545</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,7 +368,8 @@
     <MESSAGE value="dev : JPA NamedQuery" />
     <MESSAGE value="dev : @Query를 통한 조회 및 DTO 조회" />
     <MESSAGE value="dev : 이름 기반 파라미터 바인딩 및 컬렉션 파라미터 바인딩" />
-    <option name="LAST_COMMIT_MESSAGE" value="dev : 이름 기반 파라미터 바인딩 및 컬렉션 파라미터 바인딩" />
+    <MESSAGE value="dev : 쿼리 메서드 기능 - 순수 JPA 페이징과 정렬" />
+    <option name="LAST_COMMIT_MESSAGE" value="dev : 쿼리 메서드 기능 - 순수 JPA 페이징과 정렬" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
