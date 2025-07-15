@@ -173,5 +173,20 @@ class MemberRepositoryTest {
         }
     }
 
+    // 쿼리 힌트 사용 확인 테스트
+    @Test
+    public void queryHint() throws Exception {
+        //given
+        memberRepository.save(new Member("member1", 10));
+        em.flush();
+        em.clear();
+
+        //when
+        Member member = memberRepository.findReadOnlyByUsername("member1");
+        member.setUsername("member2");
+
+        em.flush(); // 업데이트 Query가 실행되지 않는다.
+    }
+
 
 }
