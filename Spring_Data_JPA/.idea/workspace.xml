@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b9a7b1e-7ab1-4656-9199-ee18f526a780" name="Changes" comment="dev : 쿼리 메서드 기능 - 스프링 데이터 JPA 페이징과 정렬">
+    <list default="true" id="7b9a7b1e-7ab1-4656-9199-ee18f526a780" name="Changes" comment="dev : 쿼리 메서드 기능 - 벌크성 수정 쿼리">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/study/data_jpa/repository/MemberJpaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/study/data_jpa/repository/MemberJpaRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/classes/study/data_jpa/repository/MemberRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/study/data_jpa/repository/MemberRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/study/data_jpa/repository/MemberJpaRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/study/data_jpa/repository/MemberJpaRepositoryTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/classes/study/data_jpa/repository/MemberRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/study/data_jpa/repository/MemberRepositoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/study/data_jpa/repository/MemberJpaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/data_jpa/repository/MemberJpaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/study/data_jpa/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/data_jpa/entity/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/study/data_jpa/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/data_jpa/repository/MemberRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/study/data_jpa/repository/MemberJpaRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/study/data_jpa/repository/MemberJpaRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/study/data_jpa/repository/MemberRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/study/data_jpa/repository/MemberRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,6 +121,7 @@
     "JUnit.MemberRepositoryTest.bulkUpdate.executor": "Run",
     "JUnit.MemberRepositoryTest.executor": "Run",
     "JUnit.MemberRepositoryTest.findByUsernameAndAgeGreaterThan.executor": "Run",
+    "JUnit.MemberRepositoryTest.findMemberLazy.executor": "Run",
     "JUnit.MemberRepositoryTest.page.executor": "Run",
     "JUnit.MemberRepositoryTest.testMember.executor": "Run",
     "JUnit.MemberTest.testEntity.executor": "Run",
@@ -159,7 +157,7 @@
       <recent name="study.data_jpa.repository" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MemberRepositoryTest.bulkUpdate">
+  <component name="RunManager" selected="JUnit.MemberRepositoryTest.findMemberLazy">
     <configuration name="MemberJpaRepositoryTest.bulkUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-jpa.test" />
       <extension name="coverage">
@@ -208,7 +206,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MemberRepositoryTest.findByUsernameAndAgeGreaterThan" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MemberRepositoryTest.findMemberLazy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-jpa.test" />
       <extension name="coverage">
         <pattern>
@@ -218,7 +216,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="study.data_jpa.repository" />
       <option name="MAIN_CLASS_NAME" value="study.data_jpa.repository.MemberRepositoryTest" />
-      <option name="METHOD_NAME" value="findByUsernameAndAgeGreaterThan" />
+      <option name="METHOD_NAME" value="findMemberLazy" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -249,11 +247,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MemberRepositoryTest.findMemberLazy" />
         <item itemvalue="JUnit.MemberRepositoryTest.bulkUpdate" />
         <item itemvalue="JUnit.MemberJpaRepositoryTest.bulkUpdate" />
         <item itemvalue="JUnit.MemberRepositoryTest.page" />
         <item itemvalue="JUnit.MemberJpaRepositoryTest.paging" />
-        <item itemvalue="JUnit.MemberRepositoryTest.findByUsernameAndAgeGreaterThan" />
       </list>
     </recent_temporary>
   </component>
@@ -278,7 +276,7 @@
       <workItem from="1751268486678" duration="5479000" />
       <workItem from="1751784124137" duration="5016000" />
       <workItem from="1752477460587" duration="4725000" />
-      <workItem from="1752555829632" duration="2421000" />
+      <workItem from="1752555829632" duration="4645000" />
     </task>
     <task id="LOCAL-00001" summary="dev : JPA 1&amp;2 폴더명 변경">
       <option name="closed" value="true" />
@@ -360,7 +358,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752479351545</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="dev : 쿼리 메서드 기능 - 벌크성 수정 쿼리">
+      <option name="closed" value="true" />
+      <created>1752559226015</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1752559226015</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -377,7 +383,8 @@
     <MESSAGE value="dev : @Query를 통한 조회 및 DTO 조회" />
     <MESSAGE value="dev : 이름 기반 파라미터 바인딩 및 컬렉션 파라미터 바인딩" />
     <MESSAGE value="dev : 쿼리 메서드 기능 - 순수 JPA 페이징과 정렬" />
-    <option name="LAST_COMMIT_MESSAGE" value="dev : 쿼리 메서드 기능 - 순수 JPA 페이징과 정렬" />
+    <MESSAGE value="dev : 쿼리 메서드 기능 - 벌크성 수정 쿼리" />
+    <option name="LAST_COMMIT_MESSAGE" value="dev : 쿼리 메서드 기능 - 벌크성 수정 쿼리" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
