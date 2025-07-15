@@ -1,10 +1,11 @@
 package study.data_jpa.repository;
 
+import jakarta.persistence.LockModeType;
+import jakarta.persistence.QueryHint;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
 import study.data_jpa.dto.MemberDto;
 import study.data_jpa.entity.Member;
@@ -50,4 +51,40 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 
     Slice<Member> findSliceByAge(int age, Pageable pageable); // countQuery가 나가지 않고 limit + 1개의 데이터가 조회된다.
 
+    // select문을 제외한 벌크 연산(update, insert, delete)는 @Modifying 어노테션을 적어줘야 한다.
+    // 벌크 연산은 영속성 컨텍스트를 무시하고 실행되기 때문에, 영속성 컨텍스트에 있는 엔티티의 상태와 DB에 엔티티 상태가 달라질 수 있다.
+    @Modifying(clearAutomatically = true) // clearAutomatically = true : 영속성 컨텍스를 초기화(em.clear())
+    @Query("update Member m set m.age = m.age + 1 where m.age >= :age")
+    int bulkAgePlus(@Param("age") int age);
+
+    // JPQL 페치 조인
+    @Query("select m from Member m left join fetch m.team")
+    List<Member> findMemberFetchJoin();
+
+    // 공통 메서드 오버라이드
+    @Override
+    @EntityGraph(attributePaths = {"team"}) // @EntityGraph : 사실상 페치 조인의 간편 버전
+    List<Member> findAll();
+
+    // JPQL + 엔티티 그래프
+    @EntityGraph(attributePaths = {"team"})
+    @Query("select m from Member m")
+    List<Member> findMemberEntityGraph();
+
+    // 메서드 이름에서의 엔티티 그래프
+    @EntityGraph(attributePaths = {"team"})
+    List<Member> findEntityGraphByUsername(@Param("username") String username);
+
+    // NamedEntityGraph 사용 방법
+    @EntityGraph("Member.all")
+    @Query("select m from Member m")
+    List<Member> findMemberEntityGraph2();
+
+    // 쿼리 힌트 적용 : 읽기 전용 객체인 Member
+    @QueryHints(value = @QueryHint(name = "org.hibernate.readOnly", value = "true"))
+    Member findReadOnlyByUsername(String username);
+
+    // 비관적 락(PPESSIMISTIC_WRITE) : 데이터를 읽을 때부터 락을 걸어서 다른 트랜잭션이 위 데이터를 수정하지 못하게 막는다.
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
+    List<Member> findLockByUsername(String name);
 }

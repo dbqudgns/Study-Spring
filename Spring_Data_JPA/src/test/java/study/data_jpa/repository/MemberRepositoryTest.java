@@ -1,5 +1,6 @@
 package study.data_jpa.repository;
 
+import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 import study.data_jpa.entity.Member;
+import study.data_jpa.entity.Team;
 
 import java.util.List;
 
@@ -22,6 +24,12 @@ class MemberRepositoryTest {
 
     @Autowired
     MemberRepository memberRepository;
+
+    @Autowired
+    TeamRepository teamRepository;
+
+    @Autowired
+    EntityManager em;
 
     @Test
     void testMember(){
@@ -115,6 +123,69 @@ class MemberRepositoryTest {
         assertThat(slice.getNumber()).isEqualTo(0); // 페이지 번호
         assertThat(slice.isFirst()).isTrue(); // 첫번째 항목인가 ?
         assertThat(slice.hasNext()).isTrue(); // 다음 페이지가 있는가 ?
+    }
+
+    // 스프링 데이터 JPA를 사용한 벌크성 수정 쿼리 테스트
+    @Test
+    public void bulkUpdate() throws Exception {
+        //given
+        memberRepository.save(new Member("member1", 10));
+        memberRepository.save(new Member("member2", 19));
+        memberRepository.save(new Member("member3", 20));
+        memberRepository.save(new Member("member4", 21));
+        memberRepository.save(new Member("member5", 40));
+
+        //when : update가 된 Member 개수 반환
+        int resultCount = memberRepository.bulkAgePlus(20);
+        List<Member> findMembers = memberRepository.findByUsername("member5");
+        Member member5 = findMembers.get(0);
+        System.out.println("member5 Age = " + member5.getAge());
+
+        //then
+        assertThat(resultCount).isEqualTo(3);
+
+    }
+
+    @Test
+    public void findMemberLazy() throws Exception {
+        //given
+        //member1 -> teamA
+        //member2 -> teamB
+
+        Team teamA = new Team("teamA");
+        Team teamB = new Team("teamB");
+        teamRepository.save(teamA);
+        teamRepository.save(teamB);
+
+        memberRepository.save(new Member("member1", 10, teamA));
+        memberRepository.save(new Member("member2", 20, teamB));
+
+        em.flush();
+        em.clear();
+
+        //when
+        List<Member> members = memberRepository.findMemberFetchJoin();
+
+        //then
+        for (Member member : members) {
+            String teamName = member.getTeam().getName();
+            System.out.println("teamName = " + teamName);
+        }
+    }
+
+    // 쿼리 힌트 사용 확인 테스트
+    @Test
+    public void queryHint() throws Exception {
+        //given
+        memberRepository.save(new Member("member1", 10));
+        em.flush();
+        em.clear();
+
+        //when
+        Member member = memberRepository.findReadOnlyByUsername("member1");
+        member.setUsername("member2");
+
+        em.flush(); // 업데이트 Query가 실행되지 않는다.
     }
 
 
