@@ -107,5 +107,23 @@ class MemberJpaRepositoryTest {
 
     }
 
+    // JPA를 사용한 벌크성 수정 쿼리 테스트
+    @Test
+    public void bulkUpdate() throws Exception {
+        //given
+        memberJpaRepository.save(new Member("member1", 10));
+        memberJpaRepository.save(new Member("member2", 19));
+        memberJpaRepository.save(new Member("member3", 20));
+        memberJpaRepository.save(new Member("member4", 21));
+        memberJpaRepository.save(new Member("member5", 40));
+
+        //when : update가 된 Member 개수 반환
+        int resultCount = memberJpaRepository.bulkAgePlus(20);
+
+        //then
+        assertThat(resultCount).isEqualTo(3);
+
+    }
+
 
 }

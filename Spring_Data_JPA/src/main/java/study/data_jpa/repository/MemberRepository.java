@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import study.data_jpa.dto.MemberDto;
@@ -50,4 +51,9 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
 
     Slice<Member> findSliceByAge(int age, Pageable pageable); // countQuery가 나가지 않고 limit + 1개의 데이터가 조회된다.
 
+    // select문을 제외한 벌크 연산(update, insert, delete)는 @Modifying 어노테션을 적어줘야 한다.
+    // 벌크 연산은 영속성 컨텍스트를 무시하고 실행되기 때문에, 영속성 컨텍스트에 있는 엔티티의 상태와 DB에 엔티티 상태가 달라질 수 있다.
+    @Modifying(clearAutomatically = true) // clearAutomatically = true : 영속성 컨텍스를 초기화(em.clear())
+    @Query("update Member m set m.age = m.age + 1 where m.age >= :age")
+    int bulkAgePlus(@Param("age") int age);
 }

@@ -117,5 +117,26 @@ class MemberRepositoryTest {
         assertThat(slice.hasNext()).isTrue(); // 다음 페이지가 있는가 ?
     }
 
+    // 스프링 데이터 JPA를 사용한 벌크성 수정 쿼리 테스트
+    @Test
+    public void bulkUpdate() throws Exception {
+        //given
+        memberRepository.save(new Member("member1", 10));
+        memberRepository.save(new Member("member2", 19));
+        memberRepository.save(new Member("member3", 20));
+        memberRepository.save(new Member("member4", 21));
+        memberRepository.save(new Member("member5", 40));
+
+        //when : update가 된 Member 개수 반환
+        int resultCount = memberRepository.bulkAgePlus(20);
+        List<Member> findMembers = memberRepository.findByUsername("member5");
+        Member member5 = findMembers.get(0);
+        System.out.println("member5 Age = " + member5.getAge());
+
+        //then
+        assertThat(resultCount).isEqualTo(3);
+
+    }
+
 
 }
