@@ -2,6 +2,9 @@ package study.data_jpa.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import study.data_jpa.entity.auditing.BaseEntity;
+import study.data_jpa.entity.auditing.JpaBaseEntity;
 
 @Entity
 @Getter @Setter
@@ -12,7 +15,8 @@ import lombok.*;
         query = "select m from Member m where m.username = :username"
 )
 @NamedEntityGraph(name = "Member.all", attributeNodes = @NamedAttributeNode("team"))
-public class Member {
+@EntityListeners(AuditingEntityListener.class) // 엔티티에서 Auditing 기능이 작동되도록 감시자 역할을 연결하는 어노테이션
+public class Member extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "member_id")

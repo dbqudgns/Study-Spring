@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54c203c8-499a-47cc-9783-03fcade55a3e" name="Changes" comment="dev : API 개발 고급 - OSIV, Spring Data JPA, QueryDSL" />
+    <list default="true" id="54c203c8-499a-47cc-9783-03fcade55a3e" name="Changes" comment="dev : API 개발 고급 - OSIV, Spring Data JPA, QueryDSL">
+      <change beforePath="$PROJECT_DIR$/../Spring_Data_JPA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring_Data_JPA/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,48 +111,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Gradle.Build jpashop.executor": "Run",
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.JpashopApplicationTests.executor": "Run",
-    "Gradle.MemberRepositoryTest.testMember.executor": "Run",
-    "JUnit.ItemServiceTest.단일_조회.executor": "Run",
-    "JUnit.ItemServiceTest.전체_조회.executor": "Run",
-    "JUnit.MemberRepositoryTest.executor": "Run",
-    "JUnit.MemberRepositoryTest.testMember.executor": "Run",
-    "JUnit.MemberServiceTest.중복_회원_예외.executor": "Run",
-    "JUnit.MemberServiceTest.회원가입.executor": "Run",
-    "JUnit.OrderServiceTest.executor": "Run",
-    "JUnit.OrderServiceTest.상품주문.executor": "Run",
-    "JUnit.OrderServiceTest.상품주문_재고수량초과.executor": "Run",
-    "JUnit.OrderServiceTest.주문_취소.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.JpashopApplication.executor": "Run",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/user/OneDrive/바탕 화면/김영한 강의 실습 모음집/SpringStudy/Spring_JPA-Dev-1/src/main/resources/static",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.16313213",
-    "settings.editor.selected.configurable": "editor.preferences.completion",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Gradle.Build jpashop.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.JpashopApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.MemberRepositoryTest.testMember.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ItemServiceTest.단일_조회.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ItemServiceTest.전체_조회.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MemberRepositoryTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MemberRepositoryTest.testMember.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MemberServiceTest.중복_회원_예외.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MemberServiceTest.회원가입.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceTest.상품주문.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceTest.상품주문_재고수량초과.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderServiceTest.주문_취소.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.JpashopApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/OneDrive/바탕 화면/김영한 강의 실습 모음집/SpringStudy/Spring_JPA-Dev-1/src/main/resources/static&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.16313213&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\user\OneDrive\바탕 화면\김영한 강의 실습 모음집\SpringStudy\Spring_JPA-Dev-1\src\main\resources\static" />
@@ -315,6 +318,7 @@
       <workItem from="1751008004949" duration="904000" />
       <workItem from="1751010696086" duration="809000" />
       <workItem from="1751012004913" duration="1283000" />
+      <workItem from="1752582829643" duration="1498000" />
     </task>
     <task id="LOCAL-00001" summary="dev : 프로젝트 환경설정">
       <option name="closed" value="true" />

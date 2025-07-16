@@ -12,7 +12,8 @@ import study.data_jpa.entity.Member;
 
 import java.util.List;
 
-public interface MemberRepository extends JpaRepository<Member, Long> {
+// 스프링 데이터 JPA가 MemberRepositoryCustom을 상속받은 MemberRepositoryImpl을 인식해서 스프링 빈으로 자동 등록해준다.
+public interface MemberRepository extends JpaRepository<Member, Long>, MemberRepositoryCustom {
 
     List<Member> findByUsernameAndAgeGreaterThan(String username, int age);
 
