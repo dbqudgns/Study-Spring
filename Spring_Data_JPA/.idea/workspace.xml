@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b9a7b1e-7ab1-4656-9199-ee18f526a780" name="Changes" comment="dev : 확장 기능 - 도메인 클래스 컨버터" />
+    <list default="true" id="7b9a7b1e-7ab1-4656-9199-ee18f526a780" name="Changes" comment="dev : 확장 기능 - [Web 확장]도메인 클래스 컨버터">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/study/data_jpa/controller/converter/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/data_jpa/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/study/data_jpa/dto/MemberDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/data_jpa/dto/MemberDto.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -273,7 +277,7 @@
       <workItem from="1751784124137" duration="5016000" />
       <workItem from="1752477460587" duration="4725000" />
       <workItem from="1752555829632" duration="6393000" />
-      <workItem from="1752646629623" duration="6601000" />
+      <workItem from="1752646629623" duration="7565000" />
     </task>
     <task id="LOCAL-00001" summary="dev : JPA 1&amp;2 폴더명 변경">
       <option name="closed" value="true" />
@@ -403,7 +407,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752654625236</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="dev : 확장 기능 - [Web 확장]도메인 클래스 컨버터">
+      <option name="closed" value="true" />
+      <created>1752655826222</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1752655826222</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,7 +437,8 @@
     <MESSAGE value="dev : 확장 기능 - 사용자 정의 리포지토리 구현" />
     <MESSAGE value="dev : 확장 기능 - Auditing" />
     <MESSAGE value="dev : 확장 기능 - 도메인 클래스 컨버터" />
-    <option name="LAST_COMMIT_MESSAGE" value="dev : 확장 기능 - 도메인 클래스 컨버터" />
+    <MESSAGE value="dev : 확장 기능 - [Web 확장]도메인 클래스 컨버터" />
+    <option name="LAST_COMMIT_MESSAGE" value="dev : 확장 기능 - [Web 확장]도메인 클래스 컨버터" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
