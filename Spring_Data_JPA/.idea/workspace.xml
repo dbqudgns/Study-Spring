@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b9a7b1e-7ab1-4656-9199-ee18f526a780" name="Changes" comment="dev : 확장 기능 - 사용자 정의 리포지토리 구현">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/classes/study/data_jpa/entity/Member.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/classes/study/data_jpa/entity/Member.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/classes/study/data_jpa/repository/MemberRepositoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/classes/study/data_jpa/repository/MemberRepositoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/study/data_jpa/DataJpaApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/data_jpa/DataJpaApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/study/data_jpa/entity/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/data_jpa/entity/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/study/data_jpa/repository/MemberRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/study/data_jpa/repository/MemberRepositoryTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="7b9a7b1e-7ab1-4656-9199-ee18f526a780" name="Changes" comment="dev : 확장 기능 - 도메인 클래스 컨버터" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -160,7 +153,7 @@
       <recent name="study.data_jpa.repository" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MemberRepositoryTest.jpaEventBaseEntity">
+  <component name="RunManager" selected="Spring Boot.DataJpaApplication">
     <configuration name="MemberRepositoryTest.bulkUpdate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-jpa.test" />
       <extension name="coverage">
@@ -280,7 +273,7 @@
       <workItem from="1751784124137" duration="5016000" />
       <workItem from="1752477460587" duration="4725000" />
       <workItem from="1752555829632" duration="6393000" />
-      <workItem from="1752646629623" duration="4998000" />
+      <workItem from="1752646629623" duration="6601000" />
     </task>
     <task id="LOCAL-00001" summary="dev : JPA 1&amp;2 폴더명 변경">
       <option name="closed" value="true" />
@@ -386,7 +379,31 @@
       <option name="project" value="LOCAL" />
       <updated>1752650050468</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="dev : 확장 기능 - Auditing">
+      <option name="closed" value="true" />
+      <created>1752653727328</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1752653727328</updated>
+    </task>
+    <task id="LOCAL-00015" summary="dev : 확장 기능 - Auditing">
+      <option name="closed" value="true" />
+      <created>1752653748426</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1752653748426</updated>
+    </task>
+    <task id="LOCAL-00016" summary="dev : 확장 기능 - 도메인 클래스 컨버터">
+      <option name="closed" value="true" />
+      <created>1752654625236</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1752654625236</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +423,9 @@
     <MESSAGE value="dev : 쿼리 메서드 기능 - 벌크성 수정 쿼리" />
     <MESSAGE value="dev : 쿼리 메서드 기능 - @EntityGraph" />
     <MESSAGE value="dev : 확장 기능 - 사용자 정의 리포지토리 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="dev : 확장 기능 - 사용자 정의 리포지토리 구현" />
+    <MESSAGE value="dev : 확장 기능 - Auditing" />
+    <MESSAGE value="dev : 확장 기능 - 도메인 클래스 컨버터" />
+    <option name="LAST_COMMIT_MESSAGE" value="dev : 확장 기능 - 도메인 클래스 컨버터" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
