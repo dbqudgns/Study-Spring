@@ -8,6 +8,7 @@ import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
 import study.data_jpa.dto.MemberDto;
+import study.data_jpa.dto.MemberProjection;
 import study.data_jpa.entity.Member;
 
 import java.util.List;
@@ -88,4 +89,15 @@ public interface MemberRepository extends JpaRepository<Member, Long>, MemberRep
     // 비관적 락(PPESSIMISTIC_WRITE) : 데이터를 읽을 때부터 락을 걸어서 다른 트랜잭션이 위 데이터를 수정하지 못하게 막는다.
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     List<Member> findLockByUsername(String name);
+
+    // JPA 네이티브 SQL 지원
+    @Query(value = "select * from member where username = ?", nativeQuery = true)
+    Member findByNativeQuery(String username);
+
+    // 스프링 데이터 JPA 네이티브 쿼리 + 인터페이스 기반 Projections 활용
+    @Query(value = "select m.member_id as id, m.username, t.name as teamName " +
+    "from member m left join team t on m.team_id = t.team_id",
+            countQuery = "select count(*) from member",
+            nativeQuery = true)
+    Page<MemberProjection> findByNativeProjection(Pageable pageable);
 }

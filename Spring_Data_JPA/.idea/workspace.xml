@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b9a7b1e-7ab1-4656-9199-ee18f526a780" name="Changes" comment="dev : 확장 기능 - [Web 확장]페이징과 정렬">
+    <list default="true" id="7b9a7b1e-7ab1-4656-9199-ee18f526a780" name="Changes" comment="dev : 스프링 데이터 JPA 분석 -&gt; 새로운 엔티티를 구별하는 방법">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/study/data_jpa/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/data_jpa/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/study/data_jpa/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/study/data_jpa/repository/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/study/data_jpa/repository/MemberRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/study/data_jpa/repository/MemberRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Spring_JPA-Dev-1&amp;2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring_JPA-Dev-1&amp;2/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,6 +111,7 @@
     "Gradle.DataJpaApplicationTests.contextLoads.executor": "Run",
     "Gradle.Download Sources.executor": "Run",
     "JUnit.DataJpaApplicationTests.contextLoads.executor": "Run",
+    "JUnit.ItemRepositoryTest.save.executor": "Debug",
     "JUnit.MemberJpaRepositoryTest.basicCRUD.executor": "Run",
     "JUnit.MemberJpaRepositoryTest.bulkUpdate.executor": "Run",
     "JUnit.MemberJpaRepositoryTest.findByUsernameAndAgeGreaterThan.executor": "Run",
@@ -121,6 +123,7 @@
     "JUnit.MemberRepositoryTest.findByUsernameAndAgeGreaterThan.executor": "Run",
     "JUnit.MemberRepositoryTest.findMemberLazy.executor": "Run",
     "JUnit.MemberRepositoryTest.jpaEventBaseEntity.executor": "Run",
+    "JUnit.MemberRepositoryTest.nativeQuery.executor": "Run",
     "JUnit.MemberRepositoryTest.page.executor": "Run",
     "JUnit.MemberRepositoryTest.queryHint.executor": "Run",
     "JUnit.MemberRepositoryTest.testMember.executor": "Run",
@@ -157,7 +160,7 @@
       <recent name="study.data_jpa.repository" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ItemRepositoryTest.save">
+  <component name="RunManager" selected="JUnit.MemberRepositoryTest.nativeQuery">
     <configuration name="ItemRepositoryTest.save" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-jpa.test" />
       <extension name="coverage">
@@ -190,22 +193,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MemberRepositoryTest.findMemberLazy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="data-jpa.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="study.data_jpa.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="study.data_jpa.repository" />
-      <option name="MAIN_CLASS_NAME" value="study.data_jpa.repository.MemberRepositoryTest" />
-      <option name="METHOD_NAME" value="findMemberLazy" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MemberRepositoryTest.jpaEventBaseEntity" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="data-jpa.test" />
       <extension name="coverage">
@@ -217,6 +204,22 @@
       <option name="PACKAGE_NAME" value="study.data_jpa.repository" />
       <option name="MAIN_CLASS_NAME" value="study.data_jpa.repository.MemberRepositoryTest" />
       <option name="METHOD_NAME" value="jpaEventBaseEntity" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MemberRepositoryTest.nativeQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="data-jpa.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="study.data_jpa.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="study.data_jpa.repository" />
+      <option name="MAIN_CLASS_NAME" value="study.data_jpa.repository.MemberRepositoryTest" />
+      <option name="METHOD_NAME" value="nativeQuery" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -247,11 +250,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MemberRepositoryTest.nativeQuery" />
         <item itemvalue="JUnit.ItemRepositoryTest.save" />
         <item itemvalue="JUnit.MemberRepositoryTest.jpaEventBaseEntity" />
         <item itemvalue="JUnit.MemberRepositoryTest.callCustom" />
         <item itemvalue="JUnit.MemberRepositoryTest.queryHint" />
-        <item itemvalue="JUnit.MemberRepositoryTest.findMemberLazy" />
       </list>
     </recent_temporary>
   </component>
@@ -278,7 +281,7 @@
       <workItem from="1752477460587" duration="4725000" />
       <workItem from="1752555829632" duration="6393000" />
       <workItem from="1752646629623" duration="7708000" />
-      <workItem from="1752730409490" duration="1978000" />
+      <workItem from="1752730409490" duration="3775000" />
     </task>
     <task id="LOCAL-00001" summary="dev : JPA 1&amp;2 폴더명 변경">
       <option name="closed" value="true" />
@@ -424,7 +427,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752656853186</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="dev : 스프링 데이터 JPA 분석 -&gt; 새로운 엔티티를 구별하는 방법">
+      <option name="closed" value="true" />
+      <created>1752734633431</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1752734633431</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -448,7 +459,23 @@
     <MESSAGE value="dev : 확장 기능 - 도메인 클래스 컨버터" />
     <MESSAGE value="dev : 확장 기능 - [Web 확장]도메인 클래스 컨버터" />
     <MESSAGE value="dev : 확장 기능 - [Web 확장]페이징과 정렬" />
-    <option name="LAST_COMMIT_MESSAGE" value="dev : 확장 기능 - [Web 확장]페이징과 정렬" />
+    <MESSAGE value="dev : 스프링 데이터 JPA 분석 -&gt; 새로운 엔티티를 구별하는 방법" />
+    <option name="LAST_COMMIT_MESSAGE" value="dev : 스프링 데이터 JPA 분석 -&gt; 새로운 엔티티를 구별하는 방법" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/study/data_jpa/repository/ItemRepositoryTest.java</url>
+          <line>13</line>
+          <properties class="study.data_jpa.repository.ItemRepositoryTest" method="save">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

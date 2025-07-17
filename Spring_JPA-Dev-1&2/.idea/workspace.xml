@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="54c203c8-499a-47cc-9783-03fcade55a3e" name="Changes" comment="dev : API 개발 고급 - OSIV, Spring Data JPA, QueryDSL">
       <change beforePath="$PROJECT_DIR$/../Spring_Data_JPA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring_Data_JPA/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Spring_Data_JPA/src/main/java/study/data_jpa/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring_Data_JPA/src/main/java/study/data_jpa/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spring_Data_JPA/src/main/java/study/data_jpa/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Spring_Data_JPA/src/main/java/study/data_jpa/repository/MemberRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -321,7 +321,7 @@
       <workItem from="1751012004913" duration="1283000" />
       <workItem from="1752582829643" duration="1498000" />
       <workItem from="1752730265993" duration="86000" />
-      <workItem from="1752732450765" duration="1145000" />
+      <workItem from="1752732450765" duration="1441000" />
     </task>
     <task id="LOCAL-00001" summary="dev : 프로젝트 환경설정">
       <option name="closed" value="true" />
