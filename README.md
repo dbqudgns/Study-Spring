@@ -17,5 +17,5 @@
 - 자바 ORM 표준 JPA 프로그래밍 - 기본편 -> 학습 완료(복습 필요 : Spring_JPA-Basic)
 - 실전 ! 스프링 부트와 JPA 활용1 - 웹 어플리케이션 개발 -> 학습 완료(Spring_JPA-Dev-1&2)
 - 실전 ! 스프링 부트와 JPA 활용2 - API 개발과 성능 최적화 -> 학습 완료(Spring_JPA-Dev-1&2) 
-- 실전 ! 스프링 데이터 JPA -> 학습 중(Spring_Data_JPA)
-- 실전 ! Querydsl -> 미학습 
+- 실전 ! 스프링 데이터 JPA -> 학습 완료(Spring_Data_JPA)
+- 실전 ! Querydsl -> 학습 중(Spring_QueryDSL)
