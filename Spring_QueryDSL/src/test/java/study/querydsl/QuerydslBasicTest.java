@@ -4,7 +4,9 @@ import com.querydsl.core.QueryResults;
 import com.querydsl.core.Tuple;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.PersistenceUnit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -326,4 +328,41 @@ public class QuerydslBasicTest {
             System.out.println("t=" + tuple);
         }
     }
+
+    @PersistenceUnit
+    EntityManagerFactory emf; // EntityManagerFactory는 EntityManager를 생성하는 팩토리(공장) 객체
+
+    // 패치 조인 미적용
+    @Test
+    public void fetchJoinNo() throws Exception {
+        em.flush();
+        em.clear();
+
+        Member findMember = queryFactory
+                .selectFrom(member)
+                .where(member.username.eq("member1"))
+                .fetchOne();
+
+        boolean loaded = emf.getPersistenceUnitUtil().isLoaded(findMember.getTeam()); // 특정 연관 객체가 초기화(로딩) 되었는지 확인
+        assertThat(loaded).as("패치 조인 미적용").isFalse();
+    }
+
+    // 패치 조인 적용
+    @Test
+    public void fetchJoinUse() throws Exception {
+        em.flush();
+        em.clear();
+
+        Member findMember = queryFactory
+                .selectFrom(member)
+                .join(member.team, team).fetchJoin()
+                .where(member.username.eq("member1"))
+                .fetchOne();
+
+        boolean loaded = emf.getPersistenceUnitUtil().isLoaded(findMember.getTeam()); // 특정 연관 객체가 초기화(로딩) 되었는지 확인
+        assertThat(loaded).as("패치 조인 적용").isTrue();
+    }
+
+
+
 }
