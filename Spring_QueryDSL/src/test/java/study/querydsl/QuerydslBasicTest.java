@@ -241,4 +241,46 @@ public class QuerydslBasicTest {
         assertThat(teamB.get(team.name)).isEqualTo("teamB");
         assertThat(teamB.get(member.age.avg())).isEqualTo(35);
     }
+
+    // 조인 : 기본 조인 => join(조인 대상, 별칭으로 사용할 Q타입)
+    /**
+     * 팀 A에 소속된 모든 회원
+     */
+    @Test
+    public void join() throws Exception {
+        List<Member> result = queryFactory
+                .selectFrom(member)
+                .join(member.team, team) // innerJoin() 내부 조인
+                .where(team.name.eq("teamA"))
+                .fetch();
+
+        assertThat(result)
+                .extracting("username") // result 리스트 안의 각 객체에서 getUsername() 값을 꺼낸다.
+                .containsExactly("member1", "member2"); // 꺼낸 값들이 "member1", "member2" 순서와 내용이 정확히 일치하는지 검증
+    }
+
+    /**
+     * 세타 조인 (연관관계가 없는 필드로 조인)
+     * 외부 조인이 불가능 -> 조인 on을 사용하면 외부 조인 가능
+     * 회원의 이름이 팀 이름과 같은 회원 조회
+     *
+     */
+    @Test
+    public void theta_join() throws Exception {
+        em.persist(new Member("teamA"));
+        em.persist(new Member("teamB"));
+
+        List<Member> result = queryFactory
+                .select(member)
+                .from(member, team) // 실제 SQL에서는 Cross Join이 실행된다.
+                .where(member.username.eq(team.name))
+                .fetch();
+
+        assertThat((result))
+                .extracting("username")
+                .containsExactly("teamA", "teamB");
+
+
+
+    }
 }
