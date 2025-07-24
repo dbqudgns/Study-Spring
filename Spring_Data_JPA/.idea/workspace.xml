@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b9a7b1e-7ab1-4656-9199-ee18f526a780" name="Changes" comment="dev : 나머지 기능들 - 네이티브 쿼리" />
+    <list default="true" id="7b9a7b1e-7ab1-4656-9199-ee18f526a780" name="Changes" comment="dev : 나머지 기능들 - 네이티브 쿼리">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,52 +102,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Build data-jpa.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.DataJpaApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.DataJpaApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ItemRepositoryTest.save.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.MemberJpaRepositoryTest.basicCRUD.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MemberJpaRepositoryTest.bulkUpdate.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MemberJpaRepositoryTest.findByUsernameAndAgeGreaterThan.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MemberJpaRepositoryTest.paging.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MemberJpaRepositoryTest.testMember.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MemberRepositoryTest.bulkUpdate.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MemberRepositoryTest.callCustom.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MemberRepositoryTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MemberRepositoryTest.findByUsernameAndAgeGreaterThan.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MemberRepositoryTest.findMemberLazy.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MemberRepositoryTest.jpaEventBaseEntity.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MemberRepositoryTest.nativeQuery.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MemberRepositoryTest.page.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MemberRepositoryTest.queryHint.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MemberRepositoryTest.testMember.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MemberTest.testEntity.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.DataJpaApplication.executor&quot;: &quot;Run&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev/0717&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.16313213&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build data-jpa.executor": "Run",
+    "Gradle.DataJpaApplicationTests.contextLoads.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "JUnit.DataJpaApplicationTests.contextLoads.executor": "Run",
+    "JUnit.ItemRepositoryTest.save.executor": "Debug",
+    "JUnit.MemberJpaRepositoryTest.basicCRUD.executor": "Run",
+    "JUnit.MemberJpaRepositoryTest.bulkUpdate.executor": "Run",
+    "JUnit.MemberJpaRepositoryTest.findByUsernameAndAgeGreaterThan.executor": "Run",
+    "JUnit.MemberJpaRepositoryTest.paging.executor": "Run",
+    "JUnit.MemberJpaRepositoryTest.testMember.executor": "Run",
+    "JUnit.MemberRepositoryTest.bulkUpdate.executor": "Run",
+    "JUnit.MemberRepositoryTest.callCustom.executor": "Run",
+    "JUnit.MemberRepositoryTest.executor": "Run",
+    "JUnit.MemberRepositoryTest.findByUsernameAndAgeGreaterThan.executor": "Run",
+    "JUnit.MemberRepositoryTest.findMemberLazy.executor": "Run",
+    "JUnit.MemberRepositoryTest.jpaEventBaseEntity.executor": "Run",
+    "JUnit.MemberRepositoryTest.nativeQuery.executor": "Run",
+    "JUnit.MemberRepositoryTest.page.executor": "Run",
+    "JUnit.MemberRepositoryTest.queryHint.executor": "Run",
+    "JUnit.MemberRepositoryTest.testMember.executor": "Run",
+    "JUnit.MemberTest.testEntity.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.DataJpaApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.16313213",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -277,6 +279,7 @@
       <workItem from="1752555829632" duration="6393000" />
       <workItem from="1752646629623" duration="7708000" />
       <workItem from="1752730409490" duration="4006000" />
+      <workItem from="1752826235481" duration="2256000" />
     </task>
     <task id="LOCAL-00001" summary="dev : JPA 1&amp;2 폴더명 변경">
       <option name="closed" value="true" />
