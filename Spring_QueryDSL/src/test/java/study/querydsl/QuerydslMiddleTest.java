@@ -233,4 +233,54 @@ public class QuerydslMiddleTest {
         return usernameEq(usernameParam).and(ageEq(ageParam));
     }
 
+    /// ===============================================================
+
+    // 수정 벌크 연산
+    @Test
+    public void bulkUpdate() {
+        long count = queryFactory
+                .update(member)
+                .set(member.username, "비회원")
+                .where(member.age.lt(28))
+                .execute();
+
+        em.flush(); // 더티 체킹을 통해 DB에 일관성 진행
+        em.clear(); // 영속성 컨텍스트 초기화
+
+        List<Member> result = queryFactory
+                .selectFrom(member)
+                .fetch(); // em.clear를 통해 영속성 컨텍스트가 초기화 됐으므로 result는 DB에서 조회한 값이다.
+
+        for(Member member : result) {
+            System.out.println(member); // 이 값은 DB에서 조회한 Member이다.
+        }
+    }
+
+    // 삭제 벌크 연산
+    @Test
+    public void bulkDelete() {
+        long count = queryFactory
+                .delete(member)
+                .where(member.age.gt(28))
+                .execute();
+
+//        em.flush(); // 더티 체킹을 통해 DB에 일관성 진행
+//        em.clear(); // 영속성 컨텍스트 초기화
+
+        List<Member> result = queryFactory
+                .selectFrom(member)
+                .fetch();
+
+        /**
+         * DB에서 조회한 id들에 한해서만 영속성 컨텍스트에서 값을 조회해오는 것이라
+         * DB에서 삭제된 영속성 컨텍스트의 해당 엔티티(Member)는 불러오지 않는다!!!
+          */
+
+        for(Member member : result) {
+            System.out.println(member); // 이 값들은 영속성 컨텍스트에 있는 Member이다.
+        }
+    }
+
+    /// ===============================================================
+
 }
