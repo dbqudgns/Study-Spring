@@ -5,6 +5,7 @@ import com.querydsl.core.Tuple;
 import com.querydsl.core.types.ExpressionUtils;
 import com.querydsl.core.types.Projections;
 import com.querydsl.core.types.dsl.BooleanExpression;
+import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
@@ -283,4 +284,33 @@ public class QuerydslMiddleTest {
 
     /// ===============================================================
 
+    // SQL Function 호출하기
+    @Test
+    public void sqlFunction1() {
+
+        List<String> result = queryFactory
+                .select(Expressions.stringTemplate("function('replace', {0}, {1}, {2})",
+                        member.username, "member", "M"))
+                .from(member)
+                .fetch();
+
+        for (String r : result) {
+            System.out.println(r);
+        }
+    }
+
+    @Test // 소문자로 변경해서 변경하라
+    public void sqlFunction2() {
+        List<String> result = queryFactory
+                .select(member.username)
+                .from(member)
+                // .where(member.username.eq(Expressions.stringTemplate("function('lower', {0})", member.username)))
+                .where(member.username.eq(member.username.lower())) // lower 같은 표준 함수들은 querydsl에서 상당부분 내장하고 있다.
+                .fetch();
+
+        for(String r : result) {
+            System.out.println(r);
+        }
+
+    }
 }
