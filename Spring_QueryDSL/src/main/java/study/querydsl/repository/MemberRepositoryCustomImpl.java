@@ -109,22 +109,41 @@ public class MemberRepositoryCustomImpl implements MemberRepositoryCustom {
                 .fetch();
 
       //  long total = queryFactory.select(member). ~~
+      //  return new PageImpl<>(content, pageable, total);
 
-        JPAQuery<Member> countQuery = queryFactory
-                .select(member)
+    /** 아래 Count 쿼리는 단순한 쿼리에서는 잘 동작하는데 복잡한 쿼리에서는 잘 동작하지 않아
+    * QueryDSL 5.0은 fetchCount(), fetchResult()을 지원하지 않기로 했디.
+    * 따라서 아래 Count 쿼리를 주석처리 하였다.
+    */
+
+        // JPAQuery<Member> countQuery = queryFactory
+           //     .select(member)
+           //     .from(member)
+           //     .leftJoin(member.team, team)
+           //     .where(usernameEq(condition.getUsername()),
+           //             teamNameEq(condition.getTeamName()),
+           //             ageGoe(condition.getAgeGoe()),
+           //             ageLoe(condition.getAgeLoe()));
+
+       /**
+       *  return PageableExecutionUtils.getPage(content, pageable, countQuery::fetchCount);
+       *  countQuery::fetchCount == () -> countQuery.fetchCount()
+       *  1. 페이지 시작이면서 컨텐츠 사이즈가 페이지 사이즈보다 작을 때 count 쿼리 생략
+       *  2. 마지막 페이지일 때 count 쿼리 생략
+       */
+
+        JPAQuery<Long> countQuery = queryFactory
+                .select(member.count()) // count(member.id)로 처리된다.
                 .from(member)
                 .leftJoin(member.team, team)
-                .where(usernameEq(condition.getUsername()),
+                .where(
+                        usernameEq(condition.getUsername()),
                         teamNameEq(condition.getTeamName()),
                         ageGoe(condition.getAgeGoe()),
-                        ageLoe(condition.getAgeLoe()));
+                        ageLoe(condition.getAgeLoe())
+                );
 
-      //  return new PageImpl<>(content, pageable, total);
-        return PageableExecutionUtils.getPage(content, pageable, countQuery::fetchCount);
-        // countQuery::fetchCount == () -> countQuery.fetchCount()
-        // 1. 페이지 시작이면서 컨텐츠 사이즈가 페이지 사이즈보다 작을 때 count 쿼리 생략
-        // 2. 마지막 페이지일 때 count 쿼리 생략
-
+        return PageableExecutionUtils.getPage(content, pageable, countQuery::fetchOne);
     }
 
     private BooleanExpression usernameEq(String username) {
