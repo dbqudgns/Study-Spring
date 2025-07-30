@@ -20,11 +20,11 @@ public class OrderControllerV1 {
             status = traceV1.begin("OrderController.request()");
             orderService.orderItem(itemId);
             traceV1.end(status);
+            return "ok";
         } catch (Exception e) {
             traceV1.exception(status, e);
             throw e; // 예외를 꼭 던져줘야 로직 흐름에 영향을 주지 않는다.
         }
-        return "ok";
     }
 
 }
