@@ -1,11 +1,13 @@
 package hello.advanced.trace.logtrace;
 
 import hello.advanced.trace.TraceStatus;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
-public class FieldLogTraceTest {
+@Slf4j
+public class ThreadLocalLogTraceTest {
 
-    FieldLogTrace trace = new FieldLogTrace();
+    ThreadLocalLogTrace trace = new ThreadLocalLogTrace();
 
     @Test
     void begin_end_level2() {
