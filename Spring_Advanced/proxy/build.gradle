@@ -26,6 +26,9 @@ dependencies {
 	//테스트에서 lombok 사용
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
+
+	// 스프링 AOP : AnnotationAwareAspectJAutoProxyCreator 라는 빈 후처리기가 스프링 빈에 자동으로 등록된다.
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
 }
 
 test {
