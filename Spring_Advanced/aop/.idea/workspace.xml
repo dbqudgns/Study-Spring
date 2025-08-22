@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 포인트컷 - @annotation, @args 포인트컷 지시자 활용">
+    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 포인트컷 - bean 포인트컷 지시자 활용">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hello/aop/pointcut/AtTargetAtWithinTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hello/aop/pointcut/AtTargetAtWithinTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,10 +78,12 @@
     "JUnit.AtAnnotationTest.successArgs.executor": "Run",
     "JUnit.AtTargetAtWithinTest.executor": "Run",
     "JUnit.AtTargetAtWithinTest.success.executor": "Run",
+    "JUnit.BeanTest.success.executor": "Run",
     "JUnit.ExecutionTest.allMatch.executor": "Run",
     "JUnit.ExecutionTest.exactMatch.executor": "Run",
     "JUnit.ExecutionTest.executor": "Run",
     "JUnit.ExecutionTest.printMethod.executor": "Run",
+    "JUnit.ParameterTest.success.executor": "Run",
     "JUnit.WithinTest.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RequestMappingsPanelOrder0": "0",
@@ -112,7 +115,7 @@
       <recent name="hello.aop.order.aop" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BeanTest.success">
+  <component name="RunManager" selected="JUnit.ParameterTest.success">
     <configuration name="AtAnnotationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aop.test" />
       <extension name="coverage">
@@ -160,21 +163,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AtTargetAtWithinTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="aop.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hello.aop.pointcut.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hello.aop.pointcut" />
-      <option name="MAIN_CLASS_NAME" value="hello.aop.pointcut.AtTargetAtWithinTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="BeanTest.success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aop.test" />
       <extension name="coverage">
@@ -191,6 +179,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ParameterTest.success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="aop.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.aop.pointcut.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.aop.pointcut" />
+      <option name="MAIN_CLASS_NAME" value="hello.aop.pointcut.ParameterTest" />
+      <option name="METHOD_NAME" value="success" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="aop.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="hello.aop.AopApplication" />
@@ -200,11 +204,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ParameterTest.success" />
         <item itemvalue="JUnit.BeanTest.success" />
         <item itemvalue="JUnit.AtAnnotationTest.successAnnotation" />
         <item itemvalue="JUnit.AtAnnotationTest" />
         <item itemvalue="JUnit.AtAnnotationTest.successArgs" />
-        <item itemvalue="JUnit.AtTargetAtWithinTest" />
       </list>
     </recent_temporary>
   </component>
@@ -234,7 +238,7 @@
       <workItem from="1752129269978" duration="3844000" />
       <workItem from="1752134367253" duration="4481000" />
       <workItem from="1752216145745" duration="7467000" />
-      <workItem from="1755846030695" duration="488000" />
+      <workItem from="1755846030695" duration="3297000" />
     </task>
     <task id="LOCAL-00001" summary="dev : 스프링 AOP 이론 공부 및 실습">
       <option name="closed" value="true" />
@@ -332,7 +336,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752225812599</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="dev : 스프링 AOP 포인트컷 - bean 포인트컷 지시자 활용">
+      <option name="closed" value="true" />
+      <created>1755846839018</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1755846839018</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,6 +368,7 @@
     <MESSAGE value="dev : 스프링 AOP 포인트컷 - @target, @within 포인트컷 지시자 활용" />
     <MESSAGE value="dev : 스프링 AOP 포인트컷 - @args 포인트컷 지시자 활용" />
     <MESSAGE value="dev : 스프링 AOP 포인트컷 - @annotation, @args 포인트컷 지시자 활용" />
-    <option name="LAST_COMMIT_MESSAGE" value="dev : 스프링 AOP 포인트컷 - @annotation, @args 포인트컷 지시자 활용" />
+    <MESSAGE value="dev : 스프링 AOP 포인트컷 - bean 포인트컷 지시자 활용" />
+    <option name="LAST_COMMIT_MESSAGE" value="dev : 스프링 AOP 포인트컷 - bean 포인트컷 지시자 활용" />
   </component>
 </project>
