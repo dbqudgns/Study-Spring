@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 포인트컷 - @annotation, @args 포인트컷 지시자 활용" />
+    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 포인트컷 - @annotation, @args 포인트컷 지시자 활용">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hello/aop/pointcut/AtTargetAtWithinTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hello/aop/pointcut/AtTargetAtWithinTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +23,23 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="aop" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -70,7 +90,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.AopApplication.executor": "Run",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "dev/0822",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -92,7 +112,7 @@
       <recent name="hello.aop.order.aop" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AtAnnotationTest.successAnnotation">
+  <component name="RunManager" selected="JUnit.BeanTest.success">
     <configuration name="AtAnnotationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aop.test" />
       <extension name="coverage">
@@ -155,7 +175,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AtTargetAtWithinTest.success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BeanTest.success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aop.test" />
       <extension name="coverage">
         <pattern>
@@ -164,7 +184,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="hello.aop.pointcut" />
-      <option name="MAIN_CLASS_NAME" value="hello.aop.pointcut.AtTargetAtWithinTest" />
+      <option name="MAIN_CLASS_NAME" value="hello.aop.pointcut.BeanTest" />
       <option name="METHOD_NAME" value="success" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -180,11 +200,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BeanTest.success" />
         <item itemvalue="JUnit.AtAnnotationTest.successAnnotation" />
         <item itemvalue="JUnit.AtAnnotationTest" />
         <item itemvalue="JUnit.AtAnnotationTest.successArgs" />
         <item itemvalue="JUnit.AtTargetAtWithinTest" />
-        <item itemvalue="JUnit.AtTargetAtWithinTest.success" />
       </list>
     </recent_temporary>
   </component>
@@ -214,6 +234,7 @@
       <workItem from="1752129269978" duration="3844000" />
       <workItem from="1752134367253" duration="4481000" />
       <workItem from="1752216145745" duration="7467000" />
+      <workItem from="1755846030695" duration="488000" />
     </task>
     <task id="LOCAL-00001" summary="dev : 스프링 AOP 이론 공부 및 실습">
       <option name="closed" value="true" />
