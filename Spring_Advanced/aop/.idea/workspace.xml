@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 포인트컷 - 포인트컷 지시자 별 매개변수 전달 값 활용">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.14.2/fileHashes/fileHashes.lock" afterDir="false" />
+    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 포인트컷 -this, target 지시자 활용">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -78,6 +77,7 @@
     "JUnit.AtTargetAtWithinTest.executor": "Run",
     "JUnit.AtTargetAtWithinTest.success.executor": "Run",
     "JUnit.BeanTest.success.executor": "Run",
+    "JUnit.ExamTest.test.executor": "Run",
     "JUnit.ExecutionTest.allMatch.executor": "Run",
     "JUnit.ExecutionTest.exactMatch.executor": "Run",
     "JUnit.ExecutionTest.executor": "Run",
@@ -93,7 +93,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.AopApplication.executor": "Run",
-    "git-widget-placeholder": "dev/0822",
+    "git-widget-placeholder": "dev/0823",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -115,22 +115,7 @@
       <recent name="hello.aop.order.aop" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ThisTargetTest.success">
-    <configuration name="AtAnnotationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="aop.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hello.aop.pointcut.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hello.aop.pointcut" />
-      <option name="MAIN_CLASS_NAME" value="hello.aop.pointcut.AtAnnotationTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.ExamTest.test">
     <configuration name="AtAnnotationTest.successAnnotation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aop.test" />
       <extension name="coverage">
@@ -158,6 +143,22 @@
       <option name="PACKAGE_NAME" value="hello.aop.pointcut" />
       <option name="MAIN_CLASS_NAME" value="hello.aop.pointcut.BeanTest" />
       <option name="METHOD_NAME" value="success" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExamTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="aop.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.aop.exam.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.aop.exam" />
+      <option name="MAIN_CLASS_NAME" value="hello.aop.exam.ExamTest" />
+      <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -204,11 +205,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ExamTest.test" />
         <item itemvalue="JUnit.ThisTargetTest.success" />
         <item itemvalue="JUnit.ParameterTest.success" />
         <item itemvalue="JUnit.BeanTest.success" />
         <item itemvalue="JUnit.AtAnnotationTest.successAnnotation" />
-        <item itemvalue="JUnit.AtAnnotationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -239,6 +240,7 @@
       <workItem from="1752134367253" duration="4481000" />
       <workItem from="1752216145745" duration="7467000" />
       <workItem from="1755846030695" duration="4611000" />
+      <workItem from="1755931886877" duration="929000" />
     </task>
     <task id="LOCAL-00001" summary="dev : 스프링 AOP 이론 공부 및 실습">
       <option name="closed" value="true" />
