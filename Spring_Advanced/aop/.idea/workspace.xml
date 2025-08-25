@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 실전 예제 - 재시도 AOP">
+    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 실무 주의사항 - 프록시와 내부 호출 문제 및 대안">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +89,9 @@
     "JUnit.ExecutionTest.executor": "Run",
     "JUnit.ExecutionTest.printMethod.executor": "Run",
     "JUnit.ParameterTest.success.executor": "Run",
+    "JUnit.ProxyCastingTest.cglibProxy.executor": "Run",
+    "JUnit.ProxyCastingTest.jdkProxy.executor": "Run",
+    "JUnit.ProxyDITest.go.executor": "Run",
     "JUnit.ThisTargetTest.success.executor": "Run",
     "JUnit.WithinTest.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
@@ -131,55 +133,7 @@
       <recent name="hello.aop.order.aop" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CallServiceV3Test.external">
-    <configuration name="CallServiceV0Test.external" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="aop.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hello.aop.internalcall.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hello.aop.internalcall" />
-      <option name="MAIN_CLASS_NAME" value="hello.aop.internalcall.CallServiceV0Test" />
-      <option name="METHOD_NAME" value="external" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CallServiceV0Test.internal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="aop.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hello.aop.internalcall.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hello.aop.internalcall" />
-      <option name="MAIN_CLASS_NAME" value="hello.aop.internalcall.CallServiceV0Test" />
-      <option name="METHOD_NAME" value="internal" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CallServiceV1Test.external" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="aop.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hello.aop.internalcall.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hello.aop.internalcall" />
-      <option name="MAIN_CLASS_NAME" value="hello.aop.internalcall.CallServiceV1Test" />
-      <option name="METHOD_NAME" value="external" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.ProxyDITest.go">
     <configuration name="CallServiceV2Test.external" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aop.test" />
       <extension name="coverage">
@@ -212,6 +166,54 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ProxyCastingTest.cglibProxy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="aop.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.aop.proxyvs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.aop.proxyvs" />
+      <option name="MAIN_CLASS_NAME" value="hello.aop.proxyvs.ProxyCastingTest" />
+      <option name="METHOD_NAME" value="cglibProxy" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProxyCastingTest.jdkProxy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="aop.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.aop.proxyvs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.aop.proxyvs" />
+      <option name="MAIN_CLASS_NAME" value="hello.aop.proxyvs.ProxyCastingTest" />
+      <option name="METHOD_NAME" value="jdkProxy" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProxyDITest.go" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="aop.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hello.aop.proxyvs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hello.aop.proxyvs" />
+      <option name="MAIN_CLASS_NAME" value="hello.aop.proxyvs.ProxyDITest" />
+      <option name="METHOD_NAME" value="go" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="aop.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="hello.aop.AopApplication" />
@@ -221,11 +223,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ProxyDITest.go" />
+        <item itemvalue="JUnit.ProxyCastingTest.cglibProxy" />
+        <item itemvalue="JUnit.ProxyCastingTest.jdkProxy" />
         <item itemvalue="JUnit.CallServiceV3Test.external" />
         <item itemvalue="JUnit.CallServiceV2Test.external" />
-        <item itemvalue="JUnit.CallServiceV1Test.external" />
-        <item itemvalue="JUnit.CallServiceV0Test.internal" />
-        <item itemvalue="JUnit.CallServiceV0Test.external" />
       </list>
     </recent_temporary>
   </component>
@@ -257,7 +259,7 @@
       <workItem from="1752216145745" duration="7467000" />
       <workItem from="1755846030695" duration="4611000" />
       <workItem from="1755931886877" duration="2097000" />
-      <workItem from="1756100971281" duration="1238000" />
+      <workItem from="1756100971281" duration="4208000" />
     </task>
     <task id="LOCAL-00001" summary="dev : 스프링 AOP 이론 공부 및 실습">
       <option name="closed" value="true" />
@@ -379,7 +381,23 @@
       <option name="project" value="LOCAL" />
       <updated>1755932901980</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="dev : 스프링 AOP 실무 주의사항 - 프록시와 내부 호출 문제 및 대안">
+      <option name="closed" value="true" />
+      <created>1756102312503</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1756102312503</updated>
+    </task>
+    <task id="LOCAL-00017" summary="dev : 스프링 AOP 실무 주의사항 - 프록시와 내부 호출 문제 및 대안">
+      <option name="closed" value="true" />
+      <created>1756102334142</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1756102334142</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,6 +424,7 @@
     <MESSAGE value="dev : 스프링 AOP 포인트컷 - bean 포인트컷 지시자 활용" />
     <MESSAGE value="dev : 스프링 AOP 포인트컷 - 포인트컷 지시자 별 매개변수 전달 값 활용" />
     <MESSAGE value="dev : 스프링 AOP 실전 예제 - 로그 출력 AOP" />
-    <option name="LAST_COMMIT_MESSAGE" value="dev : 스프링 AOP 실전 예제 - 로그 출력 AOP" />
+    <MESSAGE value="dev : 스프링 AOP 실무 주의사항 - 프록시와 내부 호출 문제 및 대안" />
+    <option name="LAST_COMMIT_MESSAGE" value="dev : 스프링 AOP 실무 주의사항 - 프록시와 내부 호출 문제 및 대안" />
   </component>
 </project>
