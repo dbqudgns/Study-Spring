@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 실전 예제 - 로그 출력 AOP">
+    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 실전 예제 - 재시도 AOP">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/aop/exam/ExamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hello/aop/exam/ExamRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hello/aop/exam/ExamTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hello/aop/exam/ExamTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +46,7 @@
       <list>
         <option value="Interface" />
         <option value="AnnotationType" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -79,6 +79,11 @@
     "JUnit.AtTargetAtWithinTest.executor": "Run",
     "JUnit.AtTargetAtWithinTest.success.executor": "Run",
     "JUnit.BeanTest.success.executor": "Run",
+    "JUnit.CallServiceV0Test.external.executor": "Run",
+    "JUnit.CallServiceV0Test.internal.executor": "Run",
+    "JUnit.CallServiceV1Test.external.executor": "Run",
+    "JUnit.CallServiceV2Test.external.executor": "Run",
+    "JUnit.CallServiceV3Test.external.executor": "Run",
     "JUnit.ExamTest.test.executor": "Run",
     "JUnit.ExecutionTest.allMatch.executor": "Run",
     "JUnit.ExecutionTest.exactMatch.executor": "Run",
@@ -95,7 +100,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.AopApplication.executor": "Run",
-    "git-widget-placeholder": "dev/0823",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "dev/0825",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -110,89 +117,96 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\OneDrive\바탕 화면\김영한 강의 실습 모음집\SpringStudy\Spring_Advanced\aop\src\main\java\hello\aop\member" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="hello.aop.order.aop.member" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="hello.aop.internalcall" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="hello.aop.internalcall" />
       <recent name="hello.aop.order.aop" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ExamTest.test">
-    <configuration name="AtAnnotationTest.successAnnotation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CallServiceV3Test.external">
+    <configuration name="CallServiceV0Test.external" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aop.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="hello.aop.pointcut.*" />
+          <option name="PATTERN" value="hello.aop.internalcall.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="hello.aop.pointcut" />
-      <option name="MAIN_CLASS_NAME" value="hello.aop.pointcut.AtAnnotationTest" />
-      <option name="METHOD_NAME" value="successAnnotation" />
+      <option name="PACKAGE_NAME" value="hello.aop.internalcall" />
+      <option name="MAIN_CLASS_NAME" value="hello.aop.internalcall.CallServiceV0Test" />
+      <option name="METHOD_NAME" value="external" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BeanTest.success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CallServiceV0Test.internal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aop.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="hello.aop.pointcut.*" />
+          <option name="PATTERN" value="hello.aop.internalcall.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="hello.aop.pointcut" />
-      <option name="MAIN_CLASS_NAME" value="hello.aop.pointcut.BeanTest" />
-      <option name="METHOD_NAME" value="success" />
+      <option name="PACKAGE_NAME" value="hello.aop.internalcall" />
+      <option name="MAIN_CLASS_NAME" value="hello.aop.internalcall.CallServiceV0Test" />
+      <option name="METHOD_NAME" value="internal" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ExamTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CallServiceV1Test.external" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aop.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="hello.aop.exam.*" />
+          <option name="PATTERN" value="hello.aop.internalcall.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="hello.aop.exam" />
-      <option name="MAIN_CLASS_NAME" value="hello.aop.exam.ExamTest" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="PACKAGE_NAME" value="hello.aop.internalcall" />
+      <option name="MAIN_CLASS_NAME" value="hello.aop.internalcall.CallServiceV1Test" />
+      <option name="METHOD_NAME" value="external" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParameterTest.success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CallServiceV2Test.external" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aop.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="hello.aop.pointcut.*" />
+          <option name="PATTERN" value="hello.aop.internalcall.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="hello.aop.pointcut" />
-      <option name="MAIN_CLASS_NAME" value="hello.aop.pointcut.ParameterTest" />
-      <option name="METHOD_NAME" value="success" />
+      <option name="PACKAGE_NAME" value="hello.aop.internalcall" />
+      <option name="MAIN_CLASS_NAME" value="hello.aop.internalcall.CallServiceV2Test" />
+      <option name="METHOD_NAME" value="external" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ThisTargetTest.success" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CallServiceV3Test.external" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aop.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="hello.aop.pointcut.*" />
+          <option name="PATTERN" value="hello.aop.internalcall.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="hello.aop.pointcut" />
-      <option name="MAIN_CLASS_NAME" value="hello.aop.pointcut.ThisTargetTest" />
-      <option name="METHOD_NAME" value="success" />
+      <option name="PACKAGE_NAME" value="hello.aop.internalcall" />
+      <option name="MAIN_CLASS_NAME" value="hello.aop.internalcall.CallServiceV3Test" />
+      <option name="METHOD_NAME" value="external" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -207,11 +221,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ExamTest.test" />
-        <item itemvalue="JUnit.ThisTargetTest.success" />
-        <item itemvalue="JUnit.ParameterTest.success" />
-        <item itemvalue="JUnit.BeanTest.success" />
-        <item itemvalue="JUnit.AtAnnotationTest.successAnnotation" />
+        <item itemvalue="JUnit.CallServiceV3Test.external" />
+        <item itemvalue="JUnit.CallServiceV2Test.external" />
+        <item itemvalue="JUnit.CallServiceV1Test.external" />
+        <item itemvalue="JUnit.CallServiceV0Test.internal" />
+        <item itemvalue="JUnit.CallServiceV0Test.external" />
       </list>
     </recent_temporary>
   </component>
@@ -243,6 +257,7 @@
       <workItem from="1752216145745" duration="7467000" />
       <workItem from="1755846030695" duration="4611000" />
       <workItem from="1755931886877" duration="2097000" />
+      <workItem from="1756100971281" duration="1238000" />
     </task>
     <task id="LOCAL-00001" summary="dev : 스프링 AOP 이론 공부 및 실습">
       <option name="closed" value="true" />
