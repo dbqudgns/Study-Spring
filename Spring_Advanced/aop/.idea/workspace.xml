@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 실무 주의사항 - 프록시와 내부 호출 문제 및 대안">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e7ac111b-62a4-40ca-b89c-1d401234000c" name="Changes" comment="dev : 스프링 AOP 실무 주의사항 - 프록시 기술과 한계" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,6 +51,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -104,7 +106,7 @@
     "Spring Boot.AopApplication.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "dev/0825",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -259,7 +261,7 @@
       <workItem from="1752216145745" duration="7467000" />
       <workItem from="1755846030695" duration="4611000" />
       <workItem from="1755931886877" duration="2097000" />
-      <workItem from="1756100971281" duration="4208000" />
+      <workItem from="1756100971281" duration="5087000" />
     </task>
     <task id="LOCAL-00001" summary="dev : 스프링 AOP 이론 공부 및 실습">
       <option name="closed" value="true" />
@@ -397,7 +399,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756102334142</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="dev : 스프링 AOP 실무 주의사항 - 프록시 기술과 한계">
+      <option name="closed" value="true" />
+      <created>1756107185453</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1756107185453</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,6 +435,7 @@
     <MESSAGE value="dev : 스프링 AOP 포인트컷 - 포인트컷 지시자 별 매개변수 전달 값 활용" />
     <MESSAGE value="dev : 스프링 AOP 실전 예제 - 로그 출력 AOP" />
     <MESSAGE value="dev : 스프링 AOP 실무 주의사항 - 프록시와 내부 호출 문제 및 대안" />
-    <option name="LAST_COMMIT_MESSAGE" value="dev : 스프링 AOP 실무 주의사항 - 프록시와 내부 호출 문제 및 대안" />
+    <MESSAGE value="dev : 스프링 AOP 실무 주의사항 - 프록시 기술과 한계" />
+    <option name="LAST_COMMIT_MESSAGE" value="dev : 스프링 AOP 실무 주의사항 - 프록시 기술과 한계" />
   </component>
 </project>
