@@ -1,6 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '3.0.2'
-    //id 'io.spring.dependency-management' version '1.1.0'
+    // 스프링 부트가 부트 버전에 맞춘 최적화된 라이브러리 버전을 선택해주는 버전 관리 기능 plugin
+    id 'io.spring.dependency-management' version '1.1.0'
     id 'java'
 }
 
@@ -8,8 +9,8 @@ group = 'hello'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
-//스프링 부트 외부 라이브러리 버전 변경
-//ext['tomcat.version']='10.1.4'
+//스프링 부트 외부 라이브러리 버전 변경은 속성 값을 통해 지정 가능 : 속성 값(ex: tomcat.version)은 공식 홈페이지에서 확인 가능
+ext['tomcat.version']='10.1.4'
 
 configurations {
     compileOnly {
@@ -24,6 +25,7 @@ repositories {
 
 dependencies {
 
+    /*
     //1. 라이브러리 직접 지정
     //스프링 웹 MVC
     implementation 'org.springframework:spring-webmvc:6.0.4'
@@ -40,8 +42,9 @@ dependencies {
     implementation 'org.slf4j:jul-to-slf4j:2.0.6'
     //YML 관련
     implementation 'org.yaml:snakeyaml:1.33'
+    */
 
-/*
+    /*
     //2. 스프링 부트 라이브러리 버전 관리
     //스프링 웹, MVC
     implementation 'org.springframework:spring-webmvc'
@@ -58,12 +61,11 @@ dependencies {
     implementation 'org.slf4j:jul-to-slf4j'
     //YML 관련
     implementation 'org.yaml:snakeyaml'
-*/
+    */
 
-/*
     //3. 스프링 부트 스타터
     implementation 'org.springframework.boot:spring-boot-starter-web'
-*/
+
 }
 
 tasks.named('test') {
