@@ -1,11 +1,14 @@
 package hello.config;
 
+import memory.MemoryCondition;
 import memory.MemoryController;
 import memory.MemoryFinder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@Conditional(MemoryCondition.class) // MemoryConfig의 실행 여부는 MemoryCondition의 matches에 따라 좌우된다.
 public class MemoryConfig {
 
     @Bean
