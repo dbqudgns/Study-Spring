@@ -36,3 +36,9 @@ info:
   app:
     name: hello-actuator
     company: yh
+
+# loggers 엔드포인트를 사용하기 위해 적용
+# loggers 엔드포인터를 사용하면 로깅과 관련된 정보를 확인하고, 또 실시간으로 변경할 수 있다.
+logging:
+  level:
+    hello.controller: debug
