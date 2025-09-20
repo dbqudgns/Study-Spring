@@ -3,13 +3,19 @@
 # 액츄에이터는 운영 환경에서 서비스할 때 필요한 기능들을 매우 편리하게 사용할 수 있도록 다양한 기능을 제공한다.
 
 management:
-  # 특정 엔드포인트(여기서는 shutdown)을 활성화
   endpoint:
-    shutdown:
-      enabled: true
+      # 헬스 정보는 애플리케이션이 요청에 응답을 할 수 있는지 판단하는 것을 넘어 사용하는 DB가 응답하는지, 디스크 사용량에는 문제가 없는지 같은 다양한 정보들을 포함해서 만들어진다.
+      health:
+        show-components: always # 자세하게 노출되지 않는다.
+       # show-details: always # 각각의 항목이 아주 자세하게 노출된다.
+      # 특정 엔드포인트(여기서는 shutdown)을 활성화
+      shutdown:
+        enabled: true
   # 엑튜에이터 기능을 웹에 노출하지만 특정 엔드포인트(여기서는 shutdown)을 제외
+  # 엔드포인트를 활성화하고 노출을 둘다 적용되어야 사용할 수 있다.
+  # 여기서 shutdown을 웹에 노출하지 않았으므로 활성화되었지만 사용할 수는 없다.
   endpoints:
     web:
       exposure:
         include: "*"
-        exclude: "beans"
+        exclude: "shutdown"
