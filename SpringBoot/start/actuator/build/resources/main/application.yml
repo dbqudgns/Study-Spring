@@ -30,6 +30,11 @@ management:
       exposure:
         include: "*"
         exclude: "shutdown"
+      # 엔드포인트 기본 경로를 다른 경로로 변경
+      base-path: "/manage"
+  # 엑츄에이터 포트 설정
+  server:
+    port: 9292
 
 # env 적용 : Environment 에서 info.로 시작하는 정보를 출력한다.
 info:
@@ -42,3 +47,4 @@ info:
 logging:
   level:
     hello.controller: debug
+
