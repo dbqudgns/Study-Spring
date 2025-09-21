@@ -30,6 +30,11 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+    // 마이크로미터 프로메테우스 구현 라이브러리 추가
+    // 스프링 부트와 액츄에이터가 자동으로 마이크로미터 프로메테우스 구현체를 등록해서 동작하도록 설정해준다.
+    // 액츄에이터에 프로메테우스 메트릭 수집 엔드포인트가 자동으로 추가된다 : /actuator/prometheus
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+
     //test lombok 사용
     testCompileOnly 'org.projectlombok:lombok'
     testAnnotationProcessor 'org.projectlombok:lombok'
